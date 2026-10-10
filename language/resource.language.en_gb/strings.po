@@ -1106,3 +1106,7 @@ msgstr ""
 msgctxt "#31922"
 msgid "Picture"
 msgstr ""
+
+msgctxt "#31930"
+msgid "Main menu size"
+msgstr ""

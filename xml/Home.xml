@@ -903,7 +903,7 @@
 					<left>0</left>
 					<top>40</top>
 					<width>462</width>
-					<height>855</height>
+					<include>HomeMenuHeight</include>
 					<movement>7</movement>
 					<focusposition>0</focusposition>
 					<onfocus>ClearProperty(listposition,home)</onfocus>

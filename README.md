@@ -16,7 +16,9 @@ The addon id is `skin.estuary.lg`, so it installs alongside the stock Estuary.
 
 | Where | What |
 | --- | --- |
-| `xml/Home.xml` | No Kodi logo top left; power / settings / search row moved to the bottom of the side menu; the menu starts at the top and shows 9 whole items |
+| `xml/Home.xml` | No Kodi logo top left; power / settings / search row moved to the bottom of the side menu; the menu starts at the top and its height follows *Main menu size* |
+| `xml/SkinSettings.xml` | *Main menu items → Main menu size*: 4–9 rows (default 9, the most that fit above the buttons). Applied when you leave skin settings (the skin reloads once if it changed) |
+| `xml/Includes_Custom.xml` | Hand-written includes (menu height per size) |
 | `xml/Settings.xml` | Top row holds 5 tiles with **LG TV** last (shown when service.webostv is enabled); the settings grid stays 4 per row, centred |
 | `xml/Includes.xml` | `SettingsPanel` tiles scaled to 85% (340×221) so the top row fits 5; includes `Includes_LGTV.xml` |
 | `xml/Custom_1120_LGTV.xml` | LG TV page, laid out like Estuary's settings pages: categories on the left (TV, Picture, TV integration, Connection), options on the right, help text for the focused option, TV model and connection at the bottom left |

@@ -11,6 +11,7 @@
 	<include file="Includes_Maps.xml" />
 	<include file="Includes_MusicInfo.xml" />
 	<include file="Includes_LGTV.xml" />
+	<include file="Includes_Custom.xml" />
 	<include file="Includes_PVR.xml" />
 	<include file="Includes_SettingsDialog.xml" />
 	<include file="View_50_List.xml" />

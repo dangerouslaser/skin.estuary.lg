@@ -2,6 +2,8 @@
 <window>
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
+	<onunload condition="String.IsEqual(Window(Home).Property(lg_reload_skin),true)">ClearProperty(lg_reload_skin,home)</onunload>
+	<onunload condition="String.IsEqual(Window(Home).Property(lg_reload_skin),true)">ReloadSkin()</onunload>
 	<onload condition="String.IsEmpty(Skin.String(background_overlay))">Skin.SetString(background_overlay,1)</onload>
 	<controls>
 		<include>DefaultBackground</include>
@@ -161,6 +163,18 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>610</ondown>
 				<visible>Container(9000).HasFocus(2)</visible>
+				<control type="button" id="6100">
+					<label>$LOCALIZE[31930]</label>
+					<label2>$VAR[HomeMenuRowsLabel2]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>SetProperty(lg_reload_skin,true,home)</onclick>
+					<onclick condition="![String.IsEqual(Skin.String(home_menu_rows),4) | String.IsEqual(Skin.String(home_menu_rows),5) | String.IsEqual(Skin.String(home_menu_rows),6) | String.IsEqual(Skin.String(home_menu_rows),7) | String.IsEqual(Skin.String(home_menu_rows),8)]">Skin.SetString(home_menu_rows,4)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(home_menu_rows),8)">Skin.SetString(home_menu_rows,9)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(home_menu_rows),7)">Skin.SetString(home_menu_rows,8)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(home_menu_rows),6)">Skin.SetString(home_menu_rows,7)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(home_menu_rows),5)">Skin.SetString(home_menu_rows,6)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(home_menu_rows),4)">Skin.SetString(home_menu_rows,5)</onclick>
+				</control>
 				<control type="radiobutton" id="611">
 					<label>$LOCALIZE[342]</label>
 					<include>DefaultSettingButton</include>
