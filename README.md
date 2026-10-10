@@ -26,6 +26,7 @@ The addon id is `skin.estuary.lg`, so it installs alongside the stock Estuary.
 | `xml/Includes.xml` | `SettingsPanel` tiles scaled to 85% (340×221) so the top row fits 5; includes `Includes_LGTV.xml` |
 | `xml/Custom_1120_LGTV.xml` | LG TV page, laid out like Estuary's settings pages: categories on the left (TV, Picture, TV integration, Connection), options on the right, help text for the focused option, TV model and connection at the bottom left |
 | `xml/Includes_LGTV.xml` | Variables for the LG TV page |
+| `xml/Font.xml`, `fonts/DMSans-*.ttf` | **DM Sans** fontset (*Settings → Interface → Skin → Fonts*): a copy of Default using DM Sans Regular, and DM Sans Bold for the bold-styled fonts. Clock and mono fonts unchanged. DM Sans covers Latin scripts only |
 | `media/icons/sidemenu/tv.png` | TV shows icon redrawn (stacked screens with a play symbol) so it no longer looks like Live TV |
 | `media/icons/settings/lgtv.png` | Tile icon (LG logo) |
 | `language/resource.language.en_gb/strings.po` | Strings 31900–31999 |
@@ -51,4 +52,5 @@ Install from zip in Kodi, then *Settings → Interface → Skin → Estuary LG*.
 
 ## License
 
-Same as Estuary: GPL-2.0 for code, CC BY-SA 4.0 for media.
+Same as Estuary: GPL-2.0 for code, CC BY-SA 4.0 for media. DM Sans is under the SIL Open Font
+License 1.1 (`fonts/dmsans_license.txt`).

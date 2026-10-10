@@ -1114,3 +1114,7 @@ msgstr ""
 msgctxt "#31931"
 msgid "LG picture mode"
 msgstr ""
+
+msgctxt "#31932"
+msgid "DM Sans"
+msgstr ""
