@@ -17,7 +17,7 @@ The addon id is `skin.estuary.lg`, so it installs alongside the stock Estuary.
 | Where | What |
 | --- | --- |
 | `xml/Home.xml` | No Kodi logo top left; power / settings / search row moved to the bottom of the side menu; the menu starts at the top and its height follows *Main menu size*; moving right into the content collapses the menu to icons (panel slides away, labels and the button row fade, the current item keeps its highlighted icon square) and slides the content left. Left brings it back |
-| `xml/Includes_Home.xml` | Widget area (`WidgetGroupListCommon`) reaches 352px past the right edge so rows still fill the screen when collapsed; widget scrollbars counter-slide |
+| `xml/Includes_Home.xml` | Widget area (`WidgetGroupListCommon`) reaches 367px past the right edge so rows still fill the screen when collapsed; widget scrollbars counter-slide |
 | `xml/SkinSettings.xml` | *Main menu items → Main menu size*: 4–9 rows (default 9, the most that fit above the buttons). Applied when you leave skin settings (the skin reloads once if it changed) |
 | `xml/Includes_Custom.xml` | Hand-written includes (menu height per size, `home_menu_collapsed` expression) |
 | `xml/Settings.xml` | Top row holds 5 tiles with **LG TV** last (shown when service.webostv is enabled); the settings grid stays 4 per row, centred |
