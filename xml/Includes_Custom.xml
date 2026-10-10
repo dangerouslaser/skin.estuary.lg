@@ -33,5 +33,7 @@
 		<value>$INFO[Skin.String(home_menu_rows)]</value>
 	</variable>
 	<!-- Home: the side menu collapses to icons while the content has focus. -->
-	<expression name="home_menu_collapsed">ControlGroup(2000).HasFocus + Window.IsActive(home)</expression>
+	<!-- 20000/20001 are Estuary's hidden "bounce" buttons at the top/bottom of the widgets; focus
+	     passes through them and straight back, so they count as content (no menu flash). -->
+	<expression name="home_menu_collapsed">[ControlGroup(2000).HasFocus | Control.HasFocus(20000) | Control.HasFocus(20001)] + Window.IsActive(home)</expression>
 </includes>
