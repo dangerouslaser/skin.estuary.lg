@@ -17,7 +17,7 @@
 		</control>
 		<control type="group">
 			<centerleft>50%</centerleft>
-			<width>1600</width>
+			<width>1700</width>
 			<top>0</top>
 			<bottom>0</bottom>
 			<include>OpenClose_Right</include>
@@ -31,8 +31,8 @@
 				<font>font37</font>
 			</control>
 			<control type="panel" id="9000">
-				<left>0</left>
-				<width>100%</width>
+				<left>170</left>
+				<width>1360</width>
 				<top>120</top>
 				<height>300</height>
 				<onup>Control.SetFocus(9001,$INFO[Container(9000).Position],absolute)</onup>
