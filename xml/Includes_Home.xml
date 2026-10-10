@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="WidgetGroupListCommon">
+		<left>0</left>
+		<right>-352</right>
 		<orientation>vertical</orientation>
 		<height>100%</height>
 		<scrolltime tween="cubic" easing="out">500</scrolltime>
@@ -1064,6 +1066,7 @@
 	</include>
 	<include name="WidgetScrollbar">
 		<control type="group">
+			<animation effect="slide" end="352,0" time="300" tween="cubic" easing="out" condition="$EXP[home_menu_collapsed]">Conditional</animation>
 			<right>0</right>
 			<top>80</top>
 			<bottom>80</bottom>

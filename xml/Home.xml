@@ -34,6 +34,7 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group" id="2000">
 				<left>462</left>
+				<animation effect="slide" end="-352,0" time="300" tween="cubic" easing="out" condition="$EXP[home_menu_collapsed]">Conditional</animation>
 				<animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
 					<effect type="slide" end="0,20" time="60" tween="sine" />
 					<effect type="slide" end="0,-20" time="180" tween="sine" delay="80" />
@@ -615,7 +616,8 @@
 						<control type="group" id="16678">
 							<description>Weather info</description>
 							<left>68</left>
-							<right>70</right>
+							<!-- skin.estuary.lg: +352 because the widget area extends past the screen edge (collapsing side menu) -->
+							<right>422</right>
 							<top>102</top>
 							<height>360</height>
 							<visible>!String.IsEmpty(Weather.plugin)</visible>
@@ -896,9 +898,12 @@
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<include content="ContentPanel">
-					<param name="width" value="522" />
-				</include>
+				<control type="group">
+					<animation effect="slide" end="-352,0" time="300" tween="cubic" easing="out" condition="$EXP[home_menu_collapsed]">Conditional</animation>
+					<include content="ContentPanel">
+						<param name="width" value="522" />
+					</include>
+				</control>
 				<control type="fixedlist" id="9000">
 					<left>0</left>
 					<top>40</top>
@@ -955,6 +960,7 @@
 							<font>font37</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
+							<animation effect="fade" start="100" end="0" time="200" condition="$EXP[home_menu_collapsed]">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<itemlayout height="95">
@@ -974,6 +980,7 @@
 							<font>font37</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
+							<animation effect="fade" start="100" end="0" time="200" condition="$EXP[home_menu_collapsed]">Conditional</animation>
 						</control>
 					</itemlayout>
 					<content>
@@ -1092,6 +1099,7 @@
 				</control>
 				<control type="grouplist" id="700">
 					<orientation>horizontal</orientation>
+					<animation effect="fade" start="100" end="0" time="200" condition="$EXP[home_menu_collapsed]">Conditional</animation>
 					<itemgap>0</itemgap>
 					<left>-8</left>
 					<width>480</width>
