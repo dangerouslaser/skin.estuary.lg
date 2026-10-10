@@ -8,7 +8,7 @@ DEST=/storage/.kodi/addons/$ID
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 COPYFILE_DISABLE=1 tar -C "$ROOT" -cf - \
-  --exclude ./.git --exclude ./dist --exclude ./scripts --exclude .DS_Store . |
+  --exclude ./.git --exclude ./dist --exclude ./scripts --exclude ./tools --exclude .DS_Store . |
   ssh "root@$HOST" "set -e; rm -rf $DEST.new; mkdir -p $DEST.new; tar -xf - -C $DEST.new;
     rm -rf $DEST.old; [ -d $DEST ] && mv $DEST $DEST.old; mv $DEST.new $DEST; rm -rf $DEST.old;
     kodi-send -a 'ReloadSkin()' >/dev/null"

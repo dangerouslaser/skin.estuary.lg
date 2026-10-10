@@ -16,15 +16,23 @@ The addon id is `skin.estuary.lg`, so it installs alongside the stock Estuary.
 
 | Where | What |
 | --- | --- |
-| `xml/Settings.xml` | **LG TV** tile (8th slot of the lower grid), shown when service.webostv is enabled |
-| `xml/Custom_1120_LGTV.xml` | LG TV page: live status (model, connection, power, input, preset, volume) and settings-style rows for picture preset, input, apps, sound output, volume, mute, screen, remote, message, power off, status, Find TV, re-pair, add-on settings |
-| `xml/Variables.xml` | `LGTVConnectionLabel`, `LGTVMutedLabel` |
-| `media/icons/settings/lgtv.png` | Tile icon |
+| `xml/Settings.xml` | Top row holds 5 tiles with **LG TV** last (shown when service.webostv is enabled); the settings grid stays 4 per row, centred |
+| `xml/Includes.xml` | `SettingsPanel` tiles scaled to 85% (340×221) so the top row fits 5; includes `Includes_LGTV.xml` |
+| `xml/Custom_1120_LGTV.xml` | LG TV page, laid out like Estuary's settings pages: categories on the left (TV, Picture, TV integration, Connection), options on the right, help text for the focused option, TV model and connection at the bottom left |
+| `xml/Includes_LGTV.xml` | Variables for the LG TV page |
+| `media/icons/settings/lgtv.png` | Tile icon (LG logo) |
 | `language/resource.language.en_gb/strings.po` | Strings 31900–31999 |
 
-TV controls are disabled while the TV isn't connected. The page needs service.webostv 0.4.4 or
-newer (properties `WebOS.Model`, `WebOS.PicturePresetLabel`, `WebOS.SoundOutputLabel`, and
-`RunScript(service.webostv,ui,<page>)`).
+`Custom_1120_LGTV.xml` and `Includes_LGTV.xml` are generated: edit `tools/gen_lgtv.py` and run
+`python3 tools/gen_lgtv.py`. Option labels and help text come from the addon's own strings
+(`$ADDON[service.webostv …]`), so they stay in sync with its settings.
+
+TV controls are disabled while the TV isn't connected. Needs service.webostv 0.4.5 or newer.
+
+## Dev deploy
+
+`scripts/deploy.sh` copies the skin to the Kodi box over SSH and reloads it
+(`KODI_HOST`, default 192.168.1.175).
 
 ## Build
 

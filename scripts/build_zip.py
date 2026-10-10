@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ADDON_ID = "skin.estuary.lg"
-EXCLUDE_TOP = {".git", ".github", "dist", "scripts", ".gitignore"}
+EXCLUDE_TOP = {".git", ".github", "dist", "scripts", "tools", ".gitignore"}
 
 
 def version() -> str:

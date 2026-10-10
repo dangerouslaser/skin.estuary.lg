@@ -973,12 +973,4 @@
 		<value condition="!String.IsEmpty(ListItem.BMP)">$INFO[ListItem.BMP]</value>
 	</variable>
 
-	<!-- skin.estuary.lg: LG TV -->
-	<variable name="LGTVConnectionLabel">
-		<value condition="String.IsEqual(Window(Home).Property(WebOS.Connected),true)">[COLOR button_focus]$LOCALIZE[31915][/COLOR]$INFO[Window(Home).Property(WebOS.Host), · ]</value>
-		<value>[COLOR red]$LOCALIZE[31916][/COLOR]</value>
-	</variable>
-	<variable name="LGTVMutedLabel">
-		<value condition="String.IsEqual(Window(Home).Property(WebOS.Muted),true)"> ($LOCALIZE[31906])</value>
-	</variable>
 </includes>

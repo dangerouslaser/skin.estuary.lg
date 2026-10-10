@@ -1086,3 +1086,23 @@ msgstr ""
 msgctxt "#31919"
 msgid "Send a message to the TV"
 msgstr ""
+
+msgctxt "#31921"
+msgid "Playback"
+msgstr ""
+
+msgctxt "#31926"
+msgid "Turning the screen off keeps the sound playing. Press any button on the TV remote to turn it back on."
+msgstr ""
+
+msgctxt "#31927"
+msgid "Picture preset for what's on screen now. The list shows the presets the TV offers for the current signal."
+msgstr ""
+
+msgctxt "#31928"
+msgid "Preset to switch to when a video of this type starts. Pick from the presets the TV offers."
+msgstr ""
+
+msgctxt "#31922"
+msgid "Picture"
+msgstr ""
