@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- skin.estuary.lg: LG TV page, opened from the LG TV tile in Settings.
+     Reads the WebOS.* properties published by service.webostv and runs
+     its actions. Layout follows SettingsCategory.xml. -->
+<window id="1120">
+	<defaultcontrol always="true">100</defaultcontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<controls>
+		<include>DefaultBackground</include>
+		<control type="multiimage">
+			<depth>DepthBackground</depth>
+			<include>FullScreenDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<animation effect="fade" start="0" end="100" time="400" reversible="true" condition="!Window.Previous(Settings)">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="300" reversible="true" condition="!Window.Next(Settings)">WindowClose</animation>
+			<imagepath colordiffuse="35FFFFFF">$INFO[Skin.String(HomeFanart.path)]settings$INFO[Skin.String(HomeFanart.ext)]</imagepath>
+			<visible>!Player.HasMedia + !String.IsEmpty(Skin.String(HomeFanart.path))</visible>
+		</control>
+		<control type="group">
+			<include>OpenClose_Right</include>
+			<control type="grouplist" id="5">
+				<description>TV settings</description>
+				<top>133</top>
+				<left>470</left>
+				<right>60</right>
+				<bottom>137</bottom>
+				<pagecontrol>60</pagecontrol>
+				<onright>60</onright>
+				<onup>5</onup>
+				<ondown>5</ondown>
+				<control type="label">
+					<width>1390</width>
+					<height>60</height>
+					<textoffsetx>40</textoffsetx>
+					<label>$LOCALIZE[31917]</label>
+					<aligny>bottom</aligny>
+					<font>font25_title</font>
+					<textcolor>button_focus</textcolor>
+				</control>
+				<control type="button" id="100">
+					<width>1390</width>
+					<label>$LOCALIZE[31901]</label>
+					<label2>$INFO[Window(Home).Property(WebOS.PicturePresetLabel)]</label2>
+					<onclick>RunScript(service.webostv,ui,picture_preset)</onclick>
+					<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="button" id="101">
+					<width>1390</width>
+					<label>$LOCALIZE[31902]</label>
+					<label2>$INFO[Window(Home).Property(WebOS.AppTitle)]</label2>
+					<onclick>RunScript(service.webostv,ui,input)</onclick>
+					<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="button" id="102">
+					<width>1390</width>
+					<label>$LOCALIZE[31903]</label>
+					<onclick>RunScript(service.webostv,ui,app)</onclick>
+					<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="button" id="103">
+					<width>1390</width>
+					<label>$LOCALIZE[31904]</label>
+					<label2>$INFO[Window(Home).Property(WebOS.SoundOutputLabel)]</label2>
+					<onclick>RunScript(service.webostv,ui,sound_output)</onclick>
+					<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="button" id="104">
+					<width>1390</width>
+					<label>$LOCALIZE[31905]</label>
+					<label2>$INFO[Window(Home).Property(WebOS.Volume)]</label2>
+					<onclick>RunScript(service.webostv,ui,volume)</onclick>
+					<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="radiobutton" id="105">
+					<width>1390</width>
+					<label>$LOCALIZE[31906]</label>
+					<selected>String.IsEqual(Window(Home).Property(WebOS.Muted),true)</selected>
+					<onclick>RunScript(service.webostv,mute,toggle)</onclick>
+					<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="radiobutton" id="106">
+					<width>1390</width>
+					<label>$LOCALIZE[31907]</label>
+					<selected>String.IsEqual(Window(Home).Property(WebOS.ScreenOn),true)</selected>
+					<onclick condition="String.IsEqual(Window(Home).Property(WebOS.ScreenOn),true)">RunScript(service.webostv,screen,off)</onclick>
+					<onclick condition="!String.IsEqual(Window(Home).Property(WebOS.ScreenOn),true)">RunScript(service.webostv,screen,on)</onclick>
+					<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="button" id="107">
+					<width>1390</width>
+					<label>$LOCALIZE[31909]</label>
+					<onclick>RunScript(service.webostv,ui,remote)</onclick>
+					<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="button" id="108">
+					<width>1390</width>
+					<label>$LOCALIZE[31919]</label>
+					<onclick>RunScript(service.webostv,ui,toast)</onclick>
+					<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="button" id="109">
+					<width>1390</width>
+					<label>$LOCALIZE[31908]</label>
+					<onclick>RunScript(service.webostv,power_off)</onclick>
+					<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="label">
+					<width>1390</width>
+					<height>60</height>
+					<textoffsetx>40</textoffsetx>
+					<label>$LOCALIZE[31910]</label>
+					<aligny>bottom</aligny>
+					<font>font25_title</font>
+					<textcolor>button_focus</textcolor>
+				</control>
+				<control type="button" id="110">
+					<width>1390</width>
+					<label>$LOCALIZE[31911]</label>
+					<onclick>RunScript(service.webostv,ui,status)</onclick>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="button" id="111">
+					<width>1390</width>
+					<label>$LOCALIZE[31912]</label>
+					<label2>$INFO[Window(Home).Property(WebOS.Host)]</label2>
+					<onclick>RunScript(service.webostv,ui,find_tv)</onclick>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="button" id="112">
+					<width>1390</width>
+					<label>$LOCALIZE[31913]</label>
+					<onclick>RunScript(service.webostv,ui,repair)</onclick>
+					<include>DefaultSettingButton</include>
+				</control>
+				<control type="button" id="113">
+					<width>1390</width>
+					<label>$LOCALIZE[31914]</label>
+					<onclick>Addon.OpenSettings(service.webostv)</onclick>
+					<include>DefaultSettingButton</include>
+				</control>
+			</control>
+			<control type="image">
+				<left>470</left>
+				<top>130</top>
+				<right>0</right>
+				<height>2</height>
+				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+			</control>
+			<control type="image">
+				<left>470</left>
+				<bottom>135</bottom>
+				<right>0</right>
+				<height>2</height>
+				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+			</control>
+		</control>
+		<control type="group">
+			<depth>DepthContentPanel</depth>
+			<include>OpenClose_Left</include>
+			<include content="ContentPanel">
+				<param name="width" value="530" />
+			</include>
+			<control type="group">
+				<control type="image">
+					<left>95</left>
+					<top>150</top>
+					<width>300</width>
+					<height>300</height>
+					<texture>icons/settings/lgtv.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>40</left>
+					<top>450</top>
+					<width>430</width>
+					<height>45</height>
+					<label>$INFO[Window(Home).Property(WebOS.Model)]</label>
+					<font>font32_title</font>
+					<textcolor>white</textcolor>
+				</control>
+				<control type="label">
+					<left>40</left>
+					<top>500</top>
+					<width>430</width>
+					<height>45</height>
+					<label>$VAR[LGTVConnectionLabel]</label>
+					<font>font27</font>
+				</control>
+				<control type="label">
+					<left>40</left>
+					<top>560</top>
+					<width>430</width>
+					<height>45</height>
+					<label>[COLOR grey]$LOCALIZE[31918][/COLOR]  $INFO[Window(Home).Property(WebOS.Power)]</label>
+					<font>font27</font>
+					<textcolor>white</textcolor>
+				</control>
+				<control type="label">
+					<left>40</left>
+					<top>610</top>
+					<width>430</width>
+					<height>45</height>
+					<label>[COLOR grey]$LOCALIZE[31902][/COLOR]  $INFO[Window(Home).Property(WebOS.AppTitle)]</label>
+					<font>font27</font>
+					<textcolor>white</textcolor>
+				</control>
+				<control type="label">
+					<left>40</left>
+					<top>660</top>
+					<width>430</width>
+					<height>45</height>
+					<label>[COLOR grey]$LOCALIZE[31901][/COLOR]  $INFO[Window(Home).Property(WebOS.PicturePresetLabel)]</label>
+					<font>font27</font>
+					<textcolor>white</textcolor>
+				</control>
+				<control type="label">
+					<left>40</left>
+					<top>710</top>
+					<width>430</width>
+					<height>45</height>
+					<label>[COLOR grey]$LOCALIZE[31905][/COLOR]  $INFO[Window(Home).Property(WebOS.Volume)]$VAR[LGTVMutedLabel]</label>
+					<font>font27</font>
+					<textcolor>white</textcolor>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<right>0</right>
+			<top>133</top>
+			<bottom>137</bottom>
+			<width>60</width>
+			<control type="scrollbar" id="60">
+				<right>0</right>
+				<top>0</top>
+				<bottom>0</bottom>
+				<width>12</width>
+				<orientation>vertical</orientation>
+				<texturesliderbackground />
+				<onleft>5</onleft>
+				<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			</control>
+		</control>
+		<include content="TopBar">
+			<param name="breadcrumbs_label" value="$LOCALIZE[5] / $LOCALIZE[31900]" />
+		</include>
+		<include>BottomBar</include>
+	</controls>
+</window>

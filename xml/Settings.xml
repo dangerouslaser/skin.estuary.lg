@@ -120,6 +120,12 @@
 						<onclick>ActivateWindow(SystemSettings)</onclick>
 						<icon>icons/settings/system.png</icon>
 					</item>
+					<item>
+						<label>$LOCALIZE[31900]</label>
+						<onclick>ActivateWindow(1120)</onclick>
+						<icon>icons/settings/lgtv.png</icon>
+						<visible>System.AddonIsEnabled(service.webostv)</visible>
+					</item>
 				</content>
 			</control>
 		</control>

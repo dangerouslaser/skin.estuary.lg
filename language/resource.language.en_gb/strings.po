@@ -1004,3 +1004,85 @@ msgstr ""
 msgctxt "#31615"
 msgid "Subtitle language"
 msgstr ""
+
+# skin.estuary.lg: LG TV (31900-31999)
+
+msgctxt "#31900"
+msgid "LG TV"
+msgstr ""
+
+msgctxt "#31901"
+msgid "Picture preset"
+msgstr ""
+
+msgctxt "#31902"
+msgid "Input"
+msgstr ""
+
+msgctxt "#31903"
+msgid "Apps"
+msgstr ""
+
+msgctxt "#31904"
+msgid "Sound output"
+msgstr ""
+
+msgctxt "#31905"
+msgid "Volume"
+msgstr ""
+
+msgctxt "#31906"
+msgid "Mute"
+msgstr ""
+
+msgctxt "#31907"
+msgid "Screen"
+msgstr ""
+
+msgctxt "#31908"
+msgid "Turn TV off"
+msgstr ""
+
+msgctxt "#31909"
+msgid "Remote buttons"
+msgstr ""
+
+msgctxt "#31910"
+msgid "Connection"
+msgstr ""
+
+msgctxt "#31911"
+msgid "Status"
+msgstr ""
+
+msgctxt "#31912"
+msgid "Find TV on the network"
+msgstr ""
+
+msgctxt "#31913"
+msgid "Re-pair"
+msgstr ""
+
+msgctxt "#31914"
+msgid "Add-on settings"
+msgstr ""
+
+msgctxt "#31915"
+msgid "Connected"
+msgstr ""
+
+msgctxt "#31916"
+msgid "Not connected"
+msgstr ""
+
+msgctxt "#31917"
+msgid "TV"
+msgstr ""
+
+msgctxt "#31918"
+msgid "Power"
+msgstr ""
+
+msgctxt "#31919"
+msgid "Send a message to the TV"
+msgstr ""
