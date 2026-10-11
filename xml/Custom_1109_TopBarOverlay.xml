@@ -216,10 +216,10 @@
 					<visible>String.IsEmpty(Player.Art(clearlogo)) + String.IsEmpty(Player.Art(tvshow.clearlogo))</visible>
 					<animation effect="fade" time="150">VisibleChange</animation>
 					<left>20</left>
-					<top>12</top>
+					<top>5</top>
 					<width>150</width>
-					<height>100</height>
-					<aspectratio aligny="top">keep</aspectratio>
+					<height>90</height>
+					<aspectratio aligny="center">keep</aspectratio>
 					<texture>$INFO[Player.Icon]</texture>
 				</control>
 				<control type="group">
