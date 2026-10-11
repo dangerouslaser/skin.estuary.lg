@@ -22,6 +22,8 @@ The addon id is `skin.estuary.lg`, so it installs alongside the stock Estuary.
 | `xml/Includes_Custom.xml` | Hand-written includes (menu height per size, `home_menu_collapsed` expression) |
 | `xml/VideoOSD.xml` | **LG picture mode** button (before video settings) opens the TV's picture preset list; shown while the TV is connected. OSD label shows the current preset (`xml/Variables.xml`) |
 | `media/osd/fullscreen/buttons/lg-picture-mode.png` | OSD button icon |
+| `xml/VideoOSD.xml` | **Bald Process Info** button (after LG picture mode), shown when script.bald.processinfo is installed and enabled; opens it in its own launch mode (overlay or dialog) |
+| `media/osd/fullscreen/buttons/processinfo.png` | Its icon (Bald's PPI icon, scaled to Estuary's OSD icons) |
 | `xml/Settings.xml` | Top row holds 5 tiles with **LG TV** last (shown when service.webostv is enabled); the settings grid stays 4 per row, centred |
 | `xml/Includes.xml` | `SettingsPanel` tiles scaled to 85% (340×221) so the top row fits 5; includes `Includes_LGTV.xml` |
 | `xml/Custom_1120_LGTV.xml` | LG TV page, laid out like Estuary's settings pages: categories on the left (TV, Picture, TV integration, Connection), options on the right, help text for the focused option, TV model and connection at the bottom left |
