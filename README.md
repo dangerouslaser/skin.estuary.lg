@@ -34,6 +34,9 @@ The addon id is `skin.estuary.lg`, so it installs alongside the stock Estuary.
 | `xml/Font.xml`, `fonts/DMSans-*.ttf` | **DM Sans** fontset (*Settings → Interface → Skin → Fonts*): a copy of Default using DM Sans Regular, and DM Sans Bold for the bold-styled fonts. Clock and mono fonts unchanged. Both files carry Noto Sans's superscripts, subscripts and small capitals (ᴺᵉʷ ᴴᴰ ²), merged in by `tools/add_superscripts.py` (from skin.bald), since Kodi has no per-character font fallback. DM Sans covers Latin scripts only |
 | `media/icons/sidemenu/tv.png` | TV shows icon redrawn (stacked screens with a play symbol) so it no longer looks like Live TV |
 | `media/icons/settings/lgtv.png` | Tile icon (LG logo) |
+| `xml/Includes.xml` (`MediaFlags`) | Media flags (library, home info, fullscreen, music) are chips tinted with the colour theme's background so they stay readable over widgets and fanart: year, duration, resolution, HDR, video codec, audio codec, channels, subtitle language |
+| `media/flags/chip.png` | Chip texture |
+| `xml/SkinSettings.xml` | *General → Show media flags* has a toggle per flag (video codec and subtitle language are off by default) |
 | `language/resource.language.en_gb/strings.po` | Strings 31900–31999 |
 
 `Custom_1120_LGTV.xml` and `Includes_LGTV.xml` are generated: edit `tools/gen_lgtv.py` and run

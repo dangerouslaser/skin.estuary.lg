@@ -63,6 +63,62 @@
 					<onclick>Skin.ToggleSetting(hide_mediaflags)</onclick>
 					<selected>!Skin.HasSetting(hide_mediaflags)</selected>
 				</control>
+				<control type="radiobutton" id="7051">
+					<label>$LOCALIZE[31940]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(hide_flag_year)</onclick>
+					<selected>!Skin.HasSetting(hide_flag_year)</selected>
+					<enable>!Skin.HasSetting(hide_mediaflags)</enable>
+				</control>
+				<control type="radiobutton" id="7052">
+					<label>$LOCALIZE[31941]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(hide_flag_duration)</onclick>
+					<selected>!Skin.HasSetting(hide_flag_duration)</selected>
+					<enable>!Skin.HasSetting(hide_mediaflags)</enable>
+				</control>
+				<control type="radiobutton" id="7053">
+					<label>$LOCALIZE[31942]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(hide_flag_resolution)</onclick>
+					<selected>!Skin.HasSetting(hide_flag_resolution)</selected>
+					<enable>!Skin.HasSetting(hide_mediaflags)</enable>
+				</control>
+				<control type="radiobutton" id="7054">
+					<label>$LOCALIZE[31943]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(hide_flag_hdr)</onclick>
+					<selected>!Skin.HasSetting(hide_flag_hdr)</selected>
+					<enable>!Skin.HasSetting(hide_mediaflags)</enable>
+				</control>
+				<control type="radiobutton" id="7055">
+					<label>$LOCALIZE[31944]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(show_flag_videocodec)</onclick>
+					<selected>Skin.HasSetting(show_flag_videocodec)</selected>
+					<enable>!Skin.HasSetting(hide_mediaflags)</enable>
+				</control>
+				<control type="radiobutton" id="7056">
+					<label>$LOCALIZE[31945]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(hide_flag_audiocodec)</onclick>
+					<selected>!Skin.HasSetting(hide_flag_audiocodec)</selected>
+					<enable>!Skin.HasSetting(hide_mediaflags)</enable>
+				</control>
+				<control type="radiobutton" id="7057">
+					<label>$LOCALIZE[31946]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(hide_flag_channels)</onclick>
+					<selected>!Skin.HasSetting(hide_flag_channels)</selected>
+					<enable>!Skin.HasSetting(hide_mediaflags)</enable>
+				</control>
+				<control type="radiobutton" id="7058">
+					<label>$LOCALIZE[31947]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(show_flag_subtitles)</onclick>
+					<selected>Skin.HasSetting(show_flag_subtitles)</selected>
+					<enable>!Skin.HasSetting(hide_mediaflags)</enable>
+				</control>
 				<control type="button" id="706">
 					<label>$LOCALIZE[31024]</label>
 					<include>DefaultSettingButton</include>

@@ -307,7 +307,8 @@
 		</definition>
 	</include>
 	<include name="MediaFlags">
-		<param name="visible">true</param>
+		<!-- skin.estuary.lg: media flags as chips (after skin.bald) filled with the theme's primary
+		     colour so they read over widgets and fanart. Each flag can be hidden in Skin settings > General. -->
 		<definition>
 			<control type="grouplist">
 				<visible>Window.IsActive(Home) | Window.IsActive(10025) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
@@ -315,98 +316,17 @@
 				<right>20</right>
 				<height>40</height>
 				<align>right</align>
-				<itemgap>15</itemgap>
+				<itemgap>8</itemgap>
 				<width>1900</width>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="image">
-					<width>114</width>
-					<height>36</height>
-					<fadetime>0</fadetime>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture>$INFO[ListItem.Studio,resource://resource.images.studios.white/,.png]</texture>
-					<visible>System.AddonIsEnabled(resource.images.studios.white) + !String.IsEmpty($PARAM[infolabel_prefix]ListItem.Studio)</visible>
-				</control>
-				<control type="image">
-					<visible>![String.IsEmpty(ListItem.Premiered) + String.IsEmpty(ListItem.Year)]</visible>
-					<top>-2</top>
-					<width>32</width>
-					<height>32</height>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="button_focus">lists/year.png</texture>
-				</control>
-				<control type="label">
-					<visible>![String.IsEmpty(ListItem.Premiered) + String.IsEmpty(ListItem.Year)]</visible>
-					<left>-10</left>
-					<width>auto</width>
-					<height>32</height>
-					<aligny>center</aligny>
-					<font>font_flag</font>
-					<label fallback="$INFO[ListItem.Year]">$INFO[ListItem.Premiered]</label>
-				</control>
-				<control type="image">
-					<visible>!String.IsEmpty(ListItem.Duration) + !Control.IsVisible(504)</visible>
-					<width>32</width>
-					<height>32</height>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="button_focus">lists/duration.png</texture>
-				</control>
-				<control type="label">
-					<visible>!String.IsEmpty(ListItem.Duration) + !Control.IsVisible(504)</visible>
-					<left>-12</left>
-					<width>auto</width>
-					<height>32</height>
-					<aligny>center</aligny>
-					<font>font_flag</font>
-					<label>$INFO[ListItem.Duration]</label>
-				</control>
-				<control type="image">
-					<visible>!String.IsEmpty(ListItem.VideoCodec) + !Control.IsVisible(504)</visible>
-					<width>32</width>
-					<height>32</height>
-					<aspectratio align="right" aligny="center"></aspectratio>
-					<texture colordiffuse="button_focus">lists/video.png</texture>
-				</control>
-				<control type="label">
-					<visible>!String.IsEmpty(ListItem.VideoCodec) + !Control.IsVisible(504)</visible>
-					<left>-15</left>
-					<width>auto</width>
-					<height>32</height>
-					<aligny>center</aligny>
-					<font>font_flag</font>
-					<label>$VAR[MediaVideoPropVar]</label>
-				</control>
-				<control type="image">
-					<visible>!String.IsEmpty(ListItem.AudioCodec) + !Control.IsVisible(504)</visible>
-					<width>32</width>
-					<height>32</height>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="button_focus">lists/audio.png</texture>
-				</control>
-				<control type="label">
-					<visible>!String.IsEmpty(ListItem.AudioCodec) + !Control.IsVisible(504)</visible>
-					<left>-15</left>
-					<width>auto</width>
-					<height>32</height>
-					<aligny>center</aligny>
-					<font>font_flag</font>
-					<label>$VAR[MediaAudioPropVar]</label>
-				</control>
-				<control type="image">
-					<visible>!String.IsEmpty(ListItem.SubtitleLanguage) + !String.IsEqual(ListItem.SubtitleLanguage,und)</visible>
-					<width>32</width>
-					<height>32</height>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="button_focus">lists/subtitles.png</texture>
-				</control>
-				<control type="label">
-					<visible>!String.IsEmpty(ListItem.SubtitleLanguage)</visible>
-					<left>-12</left>
-					<width>auto</width>
-					<height>32</height>
-					<aligny>center</aligny>
-					<font>font_flag</font>
-					<label>$VAR[MediaSubtitlePropVar]</label>
-				</control>
+				<include content="LGFlagChip"><param name="label">$INFO[ListItem.Year]</param><param name="visible">!Skin.HasSetting(hide_flag_year) + !String.IsEmpty(ListItem.Year)</param></include>
+				<include content="LGFlagChip"><param name="label">$INFO[ListItem.Duration(mins)] min</param><param name="visible">!Skin.HasSetting(hide_flag_duration) + !String.IsEmpty(ListItem.Duration) + !Control.IsVisible(504)</param></include>
+				<include content="LGFlagChip"><param name="label">$VAR[LGFlagResolution]</param><param name="visible">!Skin.HasSetting(hide_flag_resolution) + !String.IsEmpty(ListItem.VideoResolution) + !Control.IsVisible(504)</param></include>
+				<include content="LGFlagChip"><param name="label">$VAR[LGFlagHdr1]</param><param name="visible">!Skin.HasSetting(hide_flag_hdr) + !String.IsEmpty(ListItem.HdrType) + !Control.IsVisible(504)</param></include>
+				<include content="LGFlagChip"><param name="label">$VAR[VideoHDRType2Var]</param><param name="visible">!Skin.HasSetting(hide_flag_hdr) + !String.IsEmpty(ListItem.Property(HdrType.2)) + !Control.IsVisible(504)</param></include>
+				<include content="LGFlagChip"><param name="label">$MAP[DefaultCodecMap, ListItem.VideoCodec]</param><param name="visible">Skin.HasSetting(show_flag_videocodec) + !String.IsEmpty(ListItem.VideoCodec) + !Control.IsVisible(504)</param></include>
+				<include content="LGFlagChip"><param name="label">$MAP[DefaultCodecMap, ListItem.AudioCodec]</param><param name="visible">!Skin.HasSetting(hide_flag_audiocodec) + !String.IsEmpty(ListItem.AudioCodec) + !Control.IsVisible(504)</param></include>
+				<include content="LGFlagChip"><param name="label">$INFO[ListItem.AudioChannels(DefaultLayout)]</param><param name="visible">!Skin.HasSetting(hide_flag_channels) + !String.IsEmpty(ListItem.AudioChannels) + !Control.IsVisible(504)</param></include>
+				<include content="LGFlagChip"><param name="label">$VAR[MediaSubtitlePropVar]</param><param name="visible">Skin.HasSetting(show_flag_subtitles) + !String.IsEmpty(ListItem.SubtitleLanguage) + !String.IsEqual(ListItem.SubtitleLanguage,und)</param></include>
 			</control>
 			<control type="grouplist">
 				<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + !Player.ChannelPreviewActive + Window.IsActive(fullscreenvideo)</visible>
@@ -415,57 +335,14 @@
 				<bottom>0</bottom>
 				<height>40</height>
 				<align>right</align>
-				<itemgap>15</itemgap>
+				<itemgap>8</itemgap>
 				<width>1900</width>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="image">
-					<visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
-					<width>32</width>
-					<height>32</height>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="button_focus">lists/video.png</texture>
-				</control>
-				<control type="label">
-					<visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
-					<left>-15</left>
-					<width>auto</width>
-					<height>32</height>
-					<aligny>center</aligny>
-					<font>font_flag</font>
-					<label>$VAR[MediaVideoPropVar]</label>
-				</control>
-				<control type="image">
-					<visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
-					<width>32</width>
-					<height>32</height>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="button_focus">lists/audio.png</texture>
-				</control>
-				<control type="label">
-					<visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
-					<left>-15</left>
-					<width>auto</width>
-					<height>32</height>
-					<aligny>center</aligny>
-					<font>font_flag</font>
-					<label>$VAR[MediaAudioPropVar]</label>
-				</control>
-				<control type="image">
-					<visible>VideoPlayer.SubtitlesEnabled + [!String.IsEmpty(VideoPlayer.SubtitleCodec) | !String.IsEmpty(VideoPlayer.SubtitlesLanguage)]</visible>
-					<width>32</width>
-					<height>32</height>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="button_focus">lists/subtitles.png</texture>
-				</control>
-				<control type="label">
-					<visible>VideoPlayer.SubtitlesEnabled + [!String.IsEmpty(VideoPlayer.SubtitleCodec) | !String.IsEmpty(VideoPlayer.SubtitlesLanguage)]</visible>
-					<left>-12</left>
-					<width>auto</width>
-					<height>32</height>
-					<aligny>center</aligny>
-					<font>font_flag</font>
-					<label>$VAR[MediaSubtitlePropVar]</label>
-				</control>
+				<include content="LGFlagChip"><param name="label">$VAR[LGFlagResolutionPlayer]</param><param name="visible">!Skin.HasSetting(hide_flag_resolution) + !String.IsEmpty(VideoPlayer.VideoResolution)</param></include>
+				<include content="LGFlagChip"><param name="label">$MAP[DefaultHdrMap, VideoPlayer.HdrType]</param><param name="visible">!Skin.HasSetting(hide_flag_hdr) + !String.IsEmpty(VideoPlayer.HdrType)</param></include>
+				<include content="LGFlagChip"><param name="label">$MAP[DefaultCodecMap, VideoPlayer.VideoCodec]</param><param name="visible">Skin.HasSetting(show_flag_videocodec) + !String.IsEmpty(VideoPlayer.VideoCodec)</param></include>
+				<include content="LGFlagChip"><param name="label">$MAP[DefaultCodecMap, VideoPlayer.AudioCodec]</param><param name="visible">!Skin.HasSetting(hide_flag_audiocodec) + !String.IsEmpty(VideoPlayer.AudioCodec)</param></include>
+				<include content="LGFlagChip"><param name="label">$INFO[VideoPlayer.AudioChannels(DefaultLayout)]</param><param name="visible">!Skin.HasSetting(hide_flag_channels) + !String.IsEmpty(VideoPlayer.AudioChannels)</param></include>
+				<include content="LGFlagChip"><param name="label">$VAR[MediaSubtitlePropVar]</param><param name="visible">Skin.HasSetting(show_flag_subtitles) + VideoPlayer.SubtitlesEnabled + [!String.IsEmpty(VideoPlayer.SubtitleCodec) | !String.IsEmpty(VideoPlayer.SubtitlesLanguage)]</param></include>
 			</control>
 			<control type="grouplist">
 				<visible>!String.IsEqual(ListItem.DbType,musicvideo) + [Container.Content(albums) | Window.IsActive(music)]</visible>
@@ -474,69 +351,42 @@
 				<bottom>10</bottom>
 				<height>40</height>
 				<align>right</align>
-				<itemgap>15</itemgap>
+				<itemgap>8</itemgap>
 				<width>1900</width>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="image">
-					<visible>!String.IsEmpty(ListItem.Duration) + Container.Content(albums) + ![Window.IsVisible(songinformation) | Window.IsVisible(musicinformation)]</visible>
-					<top>0</top>
-					<width>32</width>
-					<height>32</height>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="button_focus">lists/duration.png</texture>
-				</control>
-				<control type="label">
-					<visible>!String.IsEmpty(ListItem.Duration) + Container.Content(albums) + ![Window.IsVisible(songinformation) | Window.IsVisible(musicinformation)]</visible>
-					<left>-12</left>
-					<width>auto</width>
-					<height>32</height>
-					<aligny>center</aligny>
-					<font>font_flag</font>
-					<label>$INFO[ListItem.Duration]</label>
-				</control>
-				<control type="image">
-					<visible>!String.IsEmpty(ListItem.FileExtension)</visible>
-					<top>0</top>
-					<width>32</width>
-					<height>32</height>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="button_focus">lists/audio.png</texture>
-				</control>
-				<control type="label">
-					<visible>!String.IsEmpty(ListItem.FileExtension)</visible>
-					<left>-15</left>
-					<width>auto</width>
-					<height>32</height>
-					<aligny>center</aligny>
-					<font>font_flag</font>
-					<label>$VAR[MediaMusicPropVar]</label>
-				</control>
+				<include content="LGFlagChip"><param name="label">$INFO[ListItem.Duration]</param><param name="visible">!String.IsEmpty(ListItem.Duration) + Container.Content(albums) + ![Window.IsVisible(songinformation) | Window.IsVisible(musicinformation)]</param></include>
+				<include content="LGFlagChip"><param name="label">$VAR[MediaMusicPropVar]</param><param name="visible">!String.IsEmpty(ListItem.FileExtension)</param></include>
 			</control>
 			<control type="grouplist">
-				<visible>Player.ShowInfo + !Player.ChannelPreviewActive + Window.IsActive(visualisation)</visible>)
+				<visible>Player.ShowInfo + !Player.ChannelPreviewActive + Window.IsActive(visualisation)</visible>
 				<orientation>horizontal</orientation>
 				<right>20</right>
 				<bottom>9</bottom>
 				<height>40</height>
 				<align>right</align>
-				<itemgap>15</itemgap>
+				<itemgap>8</itemgap>
 				<width>1900</width>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="image">
-					<top>0</top>
-					<width>32</width>
-					<height>32</height>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="button_focus">lists/audio.png</texture>
-				</control>
-				<control type="label">
-					<left>-15</left>
-					<width>auto</width>
-					<height>32</height>
-					<aligny>center</aligny>
-					<font>font_flag</font>
-					<label>$VAR[MediaMusicPropVar]</label>
-				</control>
+				<include content="LGFlagChip"><param name="label">$VAR[MediaMusicPropVar]</param><param name="visible">true</param></include>
+			</control>
+		</definition>
+	</include>
+	<include name="LGFlagChip">
+		<param name="label" />
+		<param name="visible">true</param>
+		<definition>
+			<control type="button">
+				<top>2</top>
+				<width>auto</width>
+				<height>36</height>
+				<label>$PARAM[label]</label>
+				<font>font_flag</font>
+				<textoffsetx>12</textoffsetx>
+				<aligny>center</aligny>
+				<textcolor>FFF2F2F2</textcolor>
+				<disabledcolor>FFF2F2F2</disabledcolor>
+				<texturenofocus border="8" colordiffuse="primary_background">flags/chip.png</texturenofocus>
+				<texturefocus border="8" colordiffuse="primary_background">flags/chip.png</texturefocus>
+				<enable>false</enable>
+				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
 	</include>

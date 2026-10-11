@@ -1130,3 +1130,35 @@ msgstr ""
 msgctxt "#31935"
 msgid "This TV's webOS doesn't report its picture preset, so presets come from a built-in list and the current one shown is the last one set from Kodi."
 msgstr ""
+
+msgctxt "#31940"
+msgid "- Year"
+msgstr ""
+
+msgctxt "#31941"
+msgid "- Duration"
+msgstr ""
+
+msgctxt "#31942"
+msgid "- Resolution"
+msgstr ""
+
+msgctxt "#31943"
+msgid "- HDR type"
+msgstr ""
+
+msgctxt "#31944"
+msgid "- Video codec"
+msgstr ""
+
+msgctxt "#31945"
+msgid "- Audio codec"
+msgstr ""
+
+msgctxt "#31946"
+msgid "- Audio channels"
+msgstr ""
+
+msgctxt "#31947"
+msgid "- Subtitle language"
+msgstr ""
