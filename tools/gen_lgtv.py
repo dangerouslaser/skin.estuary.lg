@@ -40,7 +40,10 @@ def setting_bool(key: str) -> str:
 # (category id, label, rows). Row kinds:
 #   ("button", id, label, onclick, label2, enable, help)
 #   ("radio", id, label, selected, onclick, enable, help)
-#   ("header", label)
+#   ("header", id, label)
+#   ("note", id, label, visible)
+# Label rows need ids too: grouplists link up/down navigation by id, and
+# focus skips through a label only if it has one.
 CATEGORIES = [
     ("tv", s(31917), [
         ("button", 100, s(31902), run("ui", "input"), f"$INFO[{P}(WebOS.AppTitle)]", CONNECTED, ""),
@@ -57,9 +60,9 @@ CATEGORIES = [
         ("button", 108, s(31908), run("power_off"), "", CONNECTED, ""),
     ]),
     ("picture", s(31922), [
-        ("note", s(31935), f"String.IsEqual({P}(WebOS.PictureReadable),false)"),
+        ("note", 290, s(31935), f"String.IsEqual({P}(WebOS.PictureReadable),false)"),
         ("button", 200, s(31901), run("ui", "picture_preset"), f"$INFO[{P}(WebOS.PicturePresetLabel)]", f"{CONNECTED} + {PICTURE_OK}", s(31927)),
-        ("header", s(31921)),
+        ("header", 291, s(31921)),
         ("radio", 201, a(32031), setting_bool("rules_enabled"), [("", run("setting", "rules_enabled"))], PICTURE_OK, a(32081)),
         ("button", 202, a(32032), run("choose_preset", "sdr", "stay"), f"$INFO[{P}(WebOS.Rule.SDR)]", f"{setting_bool('rules_enabled')} + {PICTURE_OK}", s(31928)),
         ("button", 203, a(32033), run("choose_preset", "hdr10", "stay"), f"$INFO[{P}(WebOS.Rule.HDR10)]", f"{setting_bool('rules_enabled')} + {PICTURE_OK}", s(31928)),
@@ -88,22 +91,22 @@ CATEGORIES = [
 def row(r: tuple, t: str) -> str:
     kind = r[0]
     if kind == "note":
-        return f"""{t}<control type="label">
+        return f"""{t}<control type="label" id="{r[1]}">
 {t}	<width>1390</width>
 {t}	<height>80</height>
 {t}	<textoffsetx>40</textoffsetx>
-{t}	<label>{r[1]}</label>
+{t}	<label>{r[2]}</label>
 {t}	<aligny>center</aligny>
 {t}	<font>font12</font>
 {t}	<textcolor>grey</textcolor>
-{t}	<visible>{r[2]}</visible>
+{t}	<visible>{r[3]}</visible>
 {t}</control>"""
     if kind == "header":
-        return f"""{t}<control type="label">
+        return f"""{t}<control type="label" id="{r[1]}">
 {t}	<width>1390</width>
 {t}	<height>70</height>
 {t}	<textoffsetx>40</textoffsetx>
-{t}	<label>{r[1]}</label>
+{t}	<label>{r[2]}</label>
 {t}	<aligny>bottom</aligny>
 {t}	<font>font25_title</font>
 {t}	<textcolor>button_focus</textcolor>

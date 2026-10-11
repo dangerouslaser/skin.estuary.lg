@@ -113,7 +113,7 @@
 				<ondown>520</ondown>
 				<visible>String.IsEqual(Window.Property(lgtv_category),picture)</visible>
 				<include>Visible_Fade</include>
-					<control type="label">
+					<control type="label" id="290">
 						<width>1390</width>
 						<height>80</height>
 						<textoffsetx>40</textoffsetx>
@@ -131,7 +131,7 @@
 						<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true) + !String.IsEqual(Window(Home).Property(WebOS.PictureSupported),false)</enable>
 						<include>DefaultSettingButton</include>
 					</control>
-					<control type="label">
+					<control type="label" id="291">
 						<width>1390</width>
 						<height>70</height>
 						<textoffsetx>40</textoffsetx>
