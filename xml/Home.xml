@@ -918,14 +918,15 @@
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<focusedlayout height="95">
 						<control type="group">
-							<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+							<!-- skin.estuary.lg: stays while the menu is collapsed (the bar shrinks to the icon square) -->
+							<animation effect="fade" start="100" end="0" time="0" condition="!Control.HasFocus(9000) + !ControlGroup(700).HasFocus + !$EXP[home_menu_collapsed]">Conditional</animation>
 							<control type="image">
 								<left>0</left>
 								<top>0</top>
 								<width>462</width>
 								<height>95</height>
 								<texture colordiffuse="button_focus">lists/focus.png</texture>
-								<animation effect="fade" start="100" end="0" time="0" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">Conditional</animation>
+								<animation effect="fade" start="100" end="0" time="0" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus + !$EXP[home_menu_collapsed]] | System.HasActiveModalDialog">Conditional</animation>
 								<!-- skin.estuary.lg: grows out of the icon square with the panel when the menu expands -->
 								<animation effect="slide" end="-367,0" time="300" tween="cubic" easing="out" condition="$EXP[home_menu_collapsed]">Conditional</animation>
 							</control>
@@ -943,27 +944,7 @@
 								<width>95</width>
 								<height>95</height>
 								<texture colordiffuse="51FFFFFF">colors/black.png</texture>
-								<animation effect="fade" start="100" end="0" time="0" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">Conditional</animation>
-							</control>
-						</control>
-						<!-- skin.estuary.lg: collapsed menu keeps the current item's icon highlighted -->
-						<control type="group">
-							<visible>$EXP[home_menu_collapsed]</visible>
-							<animation effect="fade" start="0" end="100" time="200">Visible</animation>
-							<animation effect="fade" start="100" end="0" time="150">Hidden</animation>
-							<control type="image">
-								<left>0</left>
-								<top>0</top>
-								<width>95</width>
-								<height>95</height>
-								<texture colordiffuse="button_focus">lists/focus.png</texture>
-							</control>
-							<control type="image">
-								<left>0</left>
-								<top>0</top>
-								<width>95</width>
-								<height>95</height>
-								<texture colordiffuse="51FFFFFF">colors/black.png</texture>
+								<animation effect="fade" start="100" end="0" time="0" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus + !$EXP[home_menu_collapsed]] | System.HasActiveModalDialog">Conditional</animation>
 							</control>
 						</control>
 						<control type="image">
