@@ -324,6 +324,13 @@
 					<selected>!Skin.HasSetting(HomeMenuNoWeatherButton)</selected>
 					<onclick>Skin.ToggleSetting(HomeMenuNoWeatherButton)</onclick>
 				</control>
+				<control type="radiobutton" id="6180">
+					<label>$LOCALIZE[31900]</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(HomeMenuNoLGTVButton)</selected>
+					<onclick>Skin.ToggleSetting(HomeMenuNoLGTVButton)</onclick>
+					<visible>System.HasAddon(service.webostv)</visible>
+				</control>
 			</control>
 			<control type="grouplist" id="622">
 				<top>133</top>

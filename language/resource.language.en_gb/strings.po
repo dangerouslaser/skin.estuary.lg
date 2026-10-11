@@ -1118,3 +1118,11 @@ msgstr ""
 msgctxt "#31932"
 msgid "DM Sans"
 msgstr ""
+
+msgctxt "#31933"
+msgid "Apps"
+msgstr ""
+
+msgctxt "#31934"
+msgid "Inputs"
+msgstr ""

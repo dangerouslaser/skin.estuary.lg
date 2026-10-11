@@ -344,6 +344,36 @@
 						<param name="scrollbar_id" value="8010"/>
 					</include>
 				</control>
+				<!-- skin.estuary.lg: LG TV apps and inputs (service.webostv plugin) -->
+				<control type="group" id="18000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),lgtv)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="lgtv"/>
+					</include>
+					<control type="grouplist" id="18001">
+						<include>WidgetGroupListCommon</include>
+						<pagecontrol>18010</pagecontrol>
+						<include content="WidgetListSquare">
+							<param name="content_path" value="plugin://service.webostv/?view=apps"/>
+							<param name="widget_header" value="$LOCALIZE[31933]"/>
+							<param name="widget_target" value="programs"/>
+							<param name="widget_limit" value="200"/>
+							<param name="list_id" value="18100"/>
+							<param name="fallback_icon" value="DefaultAddon.png"/>
+						</include>
+						<include content="WidgetListSquare">
+							<param name="content_path" value="plugin://service.webostv/?view=inputs"/>
+							<param name="widget_header" value="$LOCALIZE[31934]"/>
+							<param name="widget_target" value="programs"/>
+							<param name="widget_limit" value="50"/>
+							<param name="list_id" value="18200"/>
+							<param name="fallback_icon" value="DefaultAddon.png"/>
+						</include>
+					</control>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="18010"/>
+					</include>
+				</control>
 				<control type="group" id="11000">
 					<visible>String.IsEqual(Container(9000).ListItem.Property(id),video)</visible>
 					<include content="Visible_Right_Delayed">
@@ -618,7 +648,8 @@
 							<left>68</left>
 							<!-- skin.estuary.lg: +367 because the widget area extends past the screen edge (collapsing side menu) -->
 							<right>437</right>
-							<top>102</top>
+							<!-- skin.estuary.lg: down 20 to line up with the first row of tiles on the other pages -->
+							<top>122</top>
 							<height>360</height>
 							<visible>!String.IsEmpty(Weather.plugin)</visible>
 							<control type="image">
@@ -1064,6 +1095,14 @@
 							<thumb>icons/sidemenu/addons.png</thumb>
 							<property name="id">addons</property>
 							<visible>!Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[31900]</label>
+							<onclick>ActivateWindow(programs,plugin://service.webostv/?view=apps,return)</onclick>
+							<property name="menu_id">$NUMBER[18000]</property>
+							<thumb>icons/sidemenu/lgtv.png</thumb>
+							<property name="id">lgtv</property>
+							<visible>System.AddonIsEnabled(service.webostv) + !Skin.HasSetting(HomeMenuNoLGTVButton)</visible>
 						</item>
 						<item>
 							<label>$LOCALIZE[1]</label>
