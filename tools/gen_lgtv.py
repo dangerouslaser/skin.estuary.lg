@@ -57,7 +57,7 @@ CATEGORIES = [
         ("button", 108, s(31908), run("power_off"), "", CONNECTED, ""),
     ]),
     ("picture", s(31922), [
-        ("note", s(31935), f"String.IsEqual({P}(WebOS.PictureSupported),false)"),
+        ("note", s(31935), f"String.IsEqual({P}(WebOS.PictureReadable),false)"),
         ("button", 200, s(31901), run("ui", "picture_preset"), f"$INFO[{P}(WebOS.PicturePresetLabel)]", f"{CONNECTED} + {PICTURE_OK}", s(31927)),
         ("header", s(31921)),
         ("radio", 201, a(32031), setting_bool("rules_enabled"), [("", run("setting", "rules_enabled"))], PICTURE_OK, a(32081)),
