@@ -963,7 +963,7 @@
 							<font>font37</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
-							<animation effect="fade" start="100" end="0" time="200" condition="$EXP[home_menu_collapsed]">Conditional</animation>
+							<animation effect="fade" start="100" end="0" time="75" reversible="false" condition="$EXP[home_menu_collapsed]">Conditional</animation><animation effect="fade" start="0" end="100" time="200" reversible="false" condition="!$EXP[home_menu_collapsed]">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<itemlayout height="95">
@@ -983,7 +983,7 @@
 							<font>font37</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
-							<animation effect="fade" start="100" end="0" time="200" condition="$EXP[home_menu_collapsed]">Conditional</animation>
+							<animation effect="fade" start="100" end="0" time="75" reversible="false" condition="$EXP[home_menu_collapsed]">Conditional</animation><animation effect="fade" start="0" end="100" time="200" reversible="false" condition="!$EXP[home_menu_collapsed]">Conditional</animation>
 						</control>
 					</itemlayout>
 					<content>
@@ -1102,7 +1102,7 @@
 				</control>
 				<control type="grouplist" id="700">
 					<orientation>horizontal</orientation>
-					<animation effect="fade" start="100" end="0" time="200" condition="$EXP[home_menu_collapsed]">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="75" reversible="false" condition="$EXP[home_menu_collapsed]">Conditional</animation><animation effect="fade" start="0" end="100" time="200" reversible="false" condition="!$EXP[home_menu_collapsed]">Conditional</animation>
 					<itemgap>0</itemgap>
 					<left>-8</left>
 					<width>480</width>
