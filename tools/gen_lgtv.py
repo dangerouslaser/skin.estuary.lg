@@ -17,6 +17,8 @@ ADDON = "service.webostv"
 P = "Window(Home).Property"
 CONNECTED = f"String.IsEqual({P}(WebOS.Connected),true)"
 CAT = "Window.Property(lgtv_category)"
+# Older webOS (e.g. 5.5) won't report the picture mode, so presets are off there.
+PICTURE_OK = f"!String.IsEqual({P}(WebOS.PictureSupported),false)"
 
 
 def s(n: int) -> str:
@@ -55,14 +57,15 @@ CATEGORIES = [
         ("button", 108, s(31908), run("power_off"), "", CONNECTED, ""),
     ]),
     ("picture", s(31922), [
-        ("button", 200, s(31901), run("ui", "picture_preset"), f"$INFO[{P}(WebOS.PicturePresetLabel)]", CONNECTED, s(31927)),
+        ("note", s(31935), f"String.IsEqual({P}(WebOS.PictureSupported),false)"),
+        ("button", 200, s(31901), run("ui", "picture_preset"), f"$INFO[{P}(WebOS.PicturePresetLabel)]", f"{CONNECTED} + {PICTURE_OK}", s(31927)),
         ("header", s(31921)),
-        ("radio", 201, a(32031), setting_bool("rules_enabled"), [("", run("setting", "rules_enabled"))], "", a(32081)),
-        ("button", 202, a(32032), run("choose_preset", "sdr", "stay"), f"$INFO[{P}(WebOS.Rule.SDR)]", setting_bool("rules_enabled"), s(31928)),
-        ("button", 203, a(32033), run("choose_preset", "hdr10", "stay"), f"$INFO[{P}(WebOS.Rule.HDR10)]", setting_bool("rules_enabled"), s(31928)),
-        ("button", 204, a(32034), run("choose_preset", "hlg", "stay"), f"$INFO[{P}(WebOS.Rule.HLG)]", setting_bool("rules_enabled"), s(31928)),
-        ("button", 205, a(32035), run("choose_preset", "dolbyvision", "stay"), f"$INFO[{P}(WebOS.Rule.DolbyVision)]", setting_bool("rules_enabled"), s(31928)),
-        ("radio", 206, a(32036), setting_bool("restore_on_stop"), [("", run("setting", "restore_on_stop"))], setting_bool("rules_enabled"), a(32086)),
+        ("radio", 201, a(32031), setting_bool("rules_enabled"), [("", run("setting", "rules_enabled"))], PICTURE_OK, a(32081)),
+        ("button", 202, a(32032), run("choose_preset", "sdr", "stay"), f"$INFO[{P}(WebOS.Rule.SDR)]", f"{setting_bool('rules_enabled')} + {PICTURE_OK}", s(31928)),
+        ("button", 203, a(32033), run("choose_preset", "hdr10", "stay"), f"$INFO[{P}(WebOS.Rule.HDR10)]", f"{setting_bool('rules_enabled')} + {PICTURE_OK}", s(31928)),
+        ("button", 204, a(32034), run("choose_preset", "hlg", "stay"), f"$INFO[{P}(WebOS.Rule.HLG)]", f"{setting_bool('rules_enabled')} + {PICTURE_OK}", s(31928)),
+        ("button", 205, a(32035), run("choose_preset", "dolbyvision", "stay"), f"$INFO[{P}(WebOS.Rule.DolbyVision)]", f"{setting_bool('rules_enabled')} + {PICTURE_OK}", s(31928)),
+        ("radio", 206, a(32036), setting_bool("restore_on_stop"), [("", run("setting", "restore_on_stop"))], f"{setting_bool('rules_enabled')} + {PICTURE_OK}", a(32086)),
     ]),
     ("integration", a(32200), [
         ("button", 300, a(32201), run("choose_kodi_input", "stay"), "$VAR[LGTVKodiInput]", "", a(32251)),
@@ -84,6 +87,17 @@ CATEGORIES = [
 
 def row(r: tuple, t: str) -> str:
     kind = r[0]
+    if kind == "note":
+        return f"""{t}<control type="label">
+{t}	<width>1390</width>
+{t}	<height>80</height>
+{t}	<textoffsetx>40</textoffsetx>
+{t}	<label>{r[1]}</label>
+{t}	<aligny>center</aligny>
+{t}	<font>font12</font>
+{t}	<textcolor>grey</textcolor>
+{t}	<visible>{r[2]}</visible>
+{t}</control>"""
     if kind == "header":
         return f"""{t}<control type="label">
 {t}	<width>1390</width>
@@ -116,7 +130,7 @@ def row(r: tuple, t: str) -> str:
 
 def build() -> str:
     t3, t4 = "\t\t\t", "\t\t\t\t"
-    first_ids = {cat: next(r[1] for r in rows if r[0] != "header") for cat, _l, rows in CATEGORIES}
+    first_ids = {cat: next(r[1] for r in rows if r[0] not in ("header", "note")) for cat, _l, rows in CATEGORIES}
 
     cat_buttons = []
     for i, (cat, label, _rows) in enumerate(CATEGORIES):
@@ -279,7 +293,7 @@ def build() -> str:
 
 
 def build_includes() -> str:
-    helps = [(r[1], r[-1]) for _c, _l, rows in CATEGORIES for r in rows if r[0] != "header" and r[-1]]
+    helps = [(r[1], r[-1]) for _c, _l, rows in CATEGORIES for r in rows if r[0] in ("button", "radio") and r[-1]]
     help_var = "\n".join(f'\t\t<value condition="Control.HasFocus({cid})">{text}</value>' for cid, text in helps)
     tv_off = "\n".join(
         f'\t\t<value condition="Integer.IsEqual(Addon.SettingInt({ADDON},on_tv_off),{i})">{a(32210 + i)}</value>'
