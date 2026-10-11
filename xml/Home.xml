@@ -353,21 +353,20 @@
 					<control type="grouplist" id="18001">
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>18010</pagecontrol>
-						<include content="WidgetListSquare" condition="System.HasAddon(service.webostv)">
+						<include content="WidgetListPVR" condition="System.HasAddon(service.webostv)">
 							<param name="content_path" value="plugin://service.webostv/?view=apps"/>
 							<param name="widget_header" value="$LOCALIZE[31933]"/>
 							<param name="widget_target" value="programs"/>
-							<param name="widget_limit" value="200"/>
+							<param name="item_limit" value="200"/>
 							<param name="list_id" value="18100"/>
-							<param name="fallback_icon" value="DefaultAddon.png"/>
+							<param name="label2" value=""/>
 						</include>
-						<include content="WidgetListSquare" condition="System.HasAddon(service.webostv)">
+						<include content="WidgetListCategories" condition="System.HasAddon(service.webostv)">
 							<param name="content_path" value="plugin://service.webostv/?view=inputs"/>
 							<param name="widget_header" value="$LOCALIZE[31934]"/>
 							<param name="widget_target" value="programs"/>
-							<param name="widget_limit" value="50"/>
+							<param name="item_limit" value="50"/>
 							<param name="list_id" value="18200"/>
-							<param name="fallback_icon" value="DefaultAddon.png"/>
 						</include>
 					</control>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
