@@ -209,11 +209,25 @@
 						<scroll>true</scroll>
 					</control>
 				</control>
+				<!-- skin.estuary.lg: live TV shows the channel logo before the title -->
+				<control type="image">
+					<visible>VideoPlayer.Content(LiveTV) + !String.IsEmpty(Player.Icon)</visible>
+					<visible>!Window.IsActive(pvrosdchannels) + !Window.IsActive(pvrchannelguide)</visible>
+					<visible>String.IsEmpty(Player.Art(clearlogo)) + String.IsEmpty(Player.Art(tvshow.clearlogo))</visible>
+					<animation effect="fade" time="150">VisibleChange</animation>
+					<left>20</left>
+					<top>10</top>
+					<width>150</width>
+					<height>110</height>
+					<aspectratio aligny="center">keep</aspectratio>
+					<texture>$INFO[Player.Icon]</texture>
+				</control>
 				<control type="group">
 					<visible>!Window.IsActive(pvrosdchannels) + !Window.IsActive(pvrchannelguide)</visible>
 					<visible>String.IsEmpty(Player.Art(clearlogo))</visible>
 					<visible>String.IsEmpty(Player.Art(tvshow.clearlogo))</visible>
 					<animation effect="fade" time="150">VisibleChange</animation>
+					<animation effect="slide" end="170,0" time="0" condition="VideoPlayer.Content(LiveTV) + !String.IsEmpty(Player.Icon)">Conditional</animation>
 					<left>20</left>
 					<right>400</right>
 					<control type="label">
