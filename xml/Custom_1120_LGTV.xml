@@ -189,13 +189,116 @@
 						<include>DefaultSettingButton</include>
 					</control>
 			</control>
-			<control type="grouplist" id="530">
+			<control type="grouplist" id="550">
 				<top>133</top>
 				<left>470</left>
 				<right>60</right>
 				<bottom>137</bottom>
 				<pagecontrol>60</pagecontrol>
 				<onleft>Control.SetFocus(23)</onleft>
+				<onright>60</onright>
+				<onup>550</onup>
+				<ondown>550</ondown>
+				<visible>String.IsEqual(Window.Property(lgtv_category),motion)</visible>
+				<include>Visible_Fade</include>
+					<control type="label" id="590">
+						<width>1390</width>
+						<height>70</height>
+						<textoffsetx>40</textoffsetx>
+						<label>$ADDON[service.webostv 32407]</label>
+						<aligny>bottom</aligny>
+						<font>font25_title</font>
+						<textcolor>button_focus</textcolor>
+					</control>
+					<control type="button" id="500">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32401]</label>
+						<label2>$VAR[LGTVMotionFilm]</label2>
+						<onclick>RunScript(service.webostv,setting,motion_film)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="501">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32402]</label>
+						<label2>$VAR[LGTVMotionVideo]</label2>
+						<onclick>RunScript(service.webostv,setting,motion_video)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="502">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32403]</label>
+						<label2>$VAR[LGTVMotionRestore]</label2>
+						<onclick>RunScript(service.webostv,setting,motion_restore)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="label" id="592">
+						<width>1390</width>
+						<height>70</height>
+						<textoffsetx>40</textoffsetx>
+						<label>$ADDON[service.webostv 32520]</label>
+						<aligny>bottom</aligny>
+						<font>font25_title</font>
+						<textcolor>button_focus</textcolor>
+					</control>
+					<control type="button" id="506">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32521]</label>
+						<label2>$VAR[LGTVQualityLiveTV]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_livetv)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="507">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32522]</label>
+						<label2>$VAR[LGTVQualitySD]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_sd)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="508">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32523]</label>
+						<label2>$VAR[LGTVQualityHD]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_hd)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="label" id="591">
+						<width>1390</width>
+						<height>70</height>
+						<textoffsetx>40</textoffsetx>
+						<label>$ADDON[service.webostv 32408]</label>
+						<aligny>bottom</aligny>
+						<font>font25_title</font>
+						<textcolor>button_focus</textcolor>
+					</control>
+					<control type="button" id="503">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32404]</label>
+						<label2>$VAR[LGTVSoundVideo]</label2>
+						<onclick>RunScript(service.webostv,setting,sound_video)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="504">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32405]</label>
+						<label2>$VAR[LGTVSoundLiveTV]</label2>
+						<onclick>RunScript(service.webostv,setting,sound_livetv)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="505">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32406]</label>
+						<label2>$VAR[LGTVSoundMusic]</label2>
+						<onclick>RunScript(service.webostv,setting,sound_music)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+			</control>
+			<control type="grouplist" id="530">
+				<top>133</top>
+				<left>470</left>
+				<right>60</right>
+				<bottom>137</bottom>
+				<pagecontrol>60</pagecontrol>
+				<onleft>Control.SetFocus(24)</onleft>
 				<onright>60</onright>
 				<onup>530</onup>
 				<ondown>530</ondown>
@@ -244,7 +347,7 @@
 				<right>60</right>
 				<bottom>137</bottom>
 				<pagecontrol>60</pagecontrol>
-				<onleft>Control.SetFocus(24)</onleft>
+				<onleft>Control.SetFocus(25)</onleft>
 				<onright>60</onright>
 				<onup>540</onup>
 				<ondown>540</ondown>
@@ -339,7 +442,7 @@
 				<width>470</width>
 				<height>85</height>
 				<texture colordiffuse="button_alt_focus">lists/focus.png</texture>
-				<visible>String.IsEqual(Window.Property(lgtv_category),integration) + !Control.HasFocus(23)</visible>
+				<visible>String.IsEqual(Window.Property(lgtv_category),motion) + !Control.HasFocus(23)</visible>
 			</control>
 			<control type="image">
 				<left>0</left>
@@ -347,7 +450,15 @@
 				<width>470</width>
 				<height>85</height>
 				<texture colordiffuse="button_alt_focus">lists/focus.png</texture>
-				<visible>String.IsEqual(Window.Property(lgtv_category),connection) + !Control.HasFocus(24)</visible>
+				<visible>String.IsEqual(Window.Property(lgtv_category),integration) + !Control.HasFocus(24)</visible>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>470</top>
+				<width>470</width>
+				<height>85</height>
+				<texture colordiffuse="button_alt_focus">lists/focus.png</texture>
+				<visible>String.IsEqual(Window.Property(lgtv_category),connection) + !Control.HasFocus(25)</visible>
 			</control>
 			<control type="grouplist" id="3">
 				<left>0</left>
@@ -386,13 +497,25 @@
 					<textoffsetx>40</textoffsetx>
 					<aligny>center</aligny>
 					<font>font37</font>
+					<label>$ADDON[service.webostv 32400]</label>
+					<onfocus>SetProperty(lgtv_category,motion)</onfocus>
+					<onright>Control.SetFocus(550)</onright>
+					<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
+					<texturenofocus />
+				</control>
+				<control type="button" id="24">
+					<width>470</width>
+					<height>85</height>
+					<textoffsetx>40</textoffsetx>
+					<aligny>center</aligny>
+					<font>font37</font>
 					<label>$ADDON[service.webostv 32200]</label>
 					<onfocus>SetProperty(lgtv_category,integration)</onfocus>
 					<onright>Control.SetFocus(530)</onright>
 					<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
 					<texturenofocus />
 				</control>
-				<control type="button" id="24">
+				<control type="button" id="25">
 					<width>470</width>
 					<height>85</height>
 					<textoffsetx>40</textoffsetx>

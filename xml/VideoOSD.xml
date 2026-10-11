@@ -212,13 +212,13 @@
 						<onclick>SetProperty(settingsdialog_header,$LOCALIZE[36501],home)</onclick>
 						<onclick>ActivateWindow(1101)</onclick>
 					</control>
-					<!-- skin.estuary.lg: LG picture mode (service.webostv) -->
+					<!-- skin.estuary.lg: LG TV menu (service.webostv): picture, motion, sound, volume, screen -->
 					<control type="radiobutton" id="70049">
 						<include content="OSDButton">
-							<param name="texture" value="osd/fullscreen/buttons/lg-picture-mode.png"/>
+							<param name="texture" value="osd/fullscreen/buttons/lgtv.png"/>
 						</include>
-						<visible>String.IsEqual(Window(Home).Property(WebOS.Connected),true) + !String.IsEqual(Window(Home).Property(WebOS.PictureSupported),false)</visible>
-						<onclick>RunScript(service.webostv,ui,picture_preset)</onclick>
+						<visible>System.AddonIsEnabled(service.webostv) + String.IsEqual(Window(Home).Property(WebOS.Connected),true)</visible>
+						<onclick>RunScript(service.webostv,ui,osd)</onclick>
 					</control>
 					<!-- skin.estuary.lg: Bald Process Info (opens in the addon's chosen launch mode) -->
 					<control type="radiobutton" id="70065">
