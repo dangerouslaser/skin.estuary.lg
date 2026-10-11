@@ -21,6 +21,7 @@ The addon id is `skin.estuary.lg`, so it installs alongside the stock Estuary.
 | `media/icons/sidemenu/lgtv.png` | Side menu icon |
 | `xml/Includes_Home.xml` | Widget area (`WidgetGroupListCommon`) reaches 367px past the right edge so rows still fill the screen when collapsed; widget scrollbars counter-slide |
 | `xml/SkinSettings.xml` | *Main menu items → Main menu size*: 4–9 rows (default 9, the most that fit above the buttons). Applied when you leave skin settings (the skin reloads once if it changed) |
+| `xml/Includes.xml` (`DefaultBackground`) | The background tint over the playing video fades out when returning to playback, matching its fade-in (it used to vanish instantly) |
 | `xml/Includes_Custom.xml` | Hand-written includes (menu height per size, `home_menu_collapsed` expression) |
 | `xml/Custom_1109_TopBarOverlay.xml` | Live TV: channel logo (`Player.Icon`) at the top left of the OSD, title moved right of it |
 | `xml/VideoOSD.xml` | **LG picture mode** button (before video settings) opens the TV's picture preset list; shown while the TV is connected. OSD label shows the current preset (`xml/Variables.xml`) |
