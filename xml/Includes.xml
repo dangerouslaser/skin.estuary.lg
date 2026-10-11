@@ -1292,8 +1292,6 @@
 				<control type="group">
 					<animation effect="fade" start="100" end="bg_alpha" time="0" condition="!Control.IsVisible(31111)">Conditional</animation>
 					<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(FullscreenGame) | Window.Previous(startup)">WindowOpen</animation>
-					<!-- skin.estuary.lg: fade back out when returning to playback (was an instant snap) -->
-					<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(fullscreenvideo) | Window.Next(FullscreenGame)">WindowClose</animation>
 					<include>ColoredBackgroundImages</include>
 				</control>
 				<control type="group" id="31111">
