@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.estuary.lg" version="4.1.0+lg.2" name="Estuary LG" provider-name="phil65, Ichabod Fletchman, Bryan Hoban">
+<addon id="skin.estuary.lg" version="4.1.0+lg.2" name="Estuary LG" provider-name="dangerouslaser">
 	<requires>
 		<import addon="xbmc.gui" version="5.18.0"/>
 	</requires>
@@ -31,6 +31,6 @@
 			<screenshot>resources/screenshot-08.jpg</screenshot>
 		</assets>
 		<summary lang="en_GB">Estuary with LG webOS TV integration</summary>
-		<description lang="en_GB">Kodi's Estuary skin (Kodi 22, with LibreELEC's settings layout) plus LG webOS TV controls from the service.webostv addon: an LG TV tile in Settings with live TV state, picture presets, inputs, sound output and more.</description>
+		<description lang="en_GB">Based on Estuary by phil65 and Ichabod Fletchman: Kodi's default skin (Kodi 22, with LibreELEC's settings layout) plus LG webOS TV controls from the service.webostv addon: an LG TV tile in Settings with live TV state, picture presets, inputs, sound output and more.</description>
 	</extension>
 </addon>
