@@ -220,13 +220,16 @@
 						<visible>System.AddonIsEnabled(service.webostv) + String.IsEqual(Window(Home).Property(WebOS.Connected),true)</visible>
 						<onclick>RunScript(service.webostv,ui,osd)</onclick>
 					</control>
-					<!-- skin.estuary.lg: Bald Process Info (opens in the addon's chosen launch mode) -->
+					<!-- skin.estuary.lg: process info. On YBLOD (System.GetBool(yblod.build)) it opens Kodi's player process info
+					     dialog with the Dolby Vision panel; elsewhere it opens Bald Process Info (in the addon's chosen launch mode)
+					     and is shown only when that addon is installed and enabled -->
 					<control type="radiobutton" id="70065">
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/processinfo.png"/>
 						</include>
-						<visible>System.HasAddon(script.bald.processinfo) + System.AddonIsEnabled(script.bald.processinfo)</visible>
-						<onclick>RunScript(script.bald.processinfo)</onclick>
+						<visible>System.GetBool(yblod.build) | [System.HasAddon(script.bald.processinfo) + System.AddonIsEnabled(script.bald.processinfo)]</visible>
+						<onclick condition="System.GetBool(yblod.build)">ActivateWindow(playerprocessinfo)</onclick>
+						<onclick condition="!System.GetBool(yblod.build)">RunScript(script.bald.processinfo)</onclick>
 					</control>
 					<control type="radiobutton" id="70048">
 						<include content="OSDButton">
