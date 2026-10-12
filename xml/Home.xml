@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>9000</defaultcontrol>
+	<!-- For service.webostv's Remote Bridge: where the remote's scroll wheel moves by
+	     button instead of Kodi's analog scroll. Sideways: horizontal rows (the home
+	     widgets, the Poster and Shift views). Buttons: grid panels (Wall, Banner,
+	     IconWall, InfoWall), whose analog scroll needs several notches per row. -->
+	<onload>SetProperty(WebOS.WheelSideways,"[Window.IsActive(home) + ControlGroup(2000).HasFocus] | Control.HasFocus(51) | Control.HasFocus(53)",home)</onload>
+	<onload>SetProperty(WebOS.WheelButtons,"Control.HasFocus(500) | Control.HasFocus(501) | Control.HasFocus(52) | Control.HasFocus(54)",home)</onload>
 	<backgroundcolor>background</backgroundcolor>
 	<controls>
 		<control type="button" id="20000">
