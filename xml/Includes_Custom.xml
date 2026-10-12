@@ -35,5 +35,9 @@
 	<!-- Home: the side menu collapses to icons while the content has focus. -->
 	<!-- 20000/20001 are Estuary's hidden "bounce" buttons at the top/bottom of the widgets; focus
 	     passes through them and straight back, so they count as content (no menu flash). -->
-	<expression name="home_menu_collapsed">[ControlGroup(2000).HasFocus | Control.HasFocus(20000) | Control.HasFocus(20001)] + Window.IsActive(home)</expression>
+	<!-- Collapsed unless the menu (9000) or its buttons (801-805) have focus.
+	     Control.HasFocus reads the id Home remembers as focused; group focus
+	     flags would be cleared while a dialog (context menu, busy...) is open
+	     and for a moment after it closes, sliding the menu out and back. -->
+	<expression name="home_menu_collapsed">Window.IsActive(home) + !Control.HasFocus(9000) + !Control.HasFocus(801) + !Control.HasFocus(802) + !Control.HasFocus(803) + !Control.HasFocus(804) + !Control.HasFocus(805)</expression>
 </includes>

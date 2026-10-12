@@ -24,6 +24,9 @@
 		<value condition="Control.HasFocus(302)">$ADDON[service.webostv 32254]</value>
 		<value condition="Control.HasFocus(303)">$ADDON[service.webostv 32255]</value>
 		<value condition="Control.HasFocus(304)">$ADDON[service.webostv 32256]</value>
+		<value condition="Control.HasFocus(305)">$ADDON[service.webostv 32652]</value>
+		<value condition="Control.HasFocus(306)">$ADDON[service.webostv 32651]</value>
+		<value condition="Control.HasFocus(307)">$ADDON[service.webostv 32653]</value>
 		<value condition="Control.HasFocus(401)">$ADDON[service.webostv 32056]</value>
 		<value condition="Control.HasFocus(402)">$ADDON[service.webostv 32061]</value>
 		<value condition="Control.HasFocus(403)">$ADDON[service.webostv 32071]</value>
@@ -35,6 +38,11 @@
 	<variable name="LGTVKodiInput">
 		<value condition="!String.IsEmpty(Window(Home).Property(WebOS.KodiInput))">$INFO[Window(Home).Property(WebOS.KodiInput)]</value>
 		<value>$ADDON[service.webostv 32309]</value>
+	</variable>
+	<variable name="LGTVRemoteBridge">
+		<value condition="String.IsEqual(Window(Home).Property(WebOS.RemoteBridge),connected)">[COLOR button_focus]$ADDON[service.webostv 32620][/COLOR]</value>
+		<value condition="String.IsEqual(Window(Home).Property(WebOS.RemoteBridge),waiting)">$ADDON[service.webostv 32621]</value>
+		<value>$ADDON[service.webostv 32622]</value>
 	</variable>
 	<variable name="LGTVOnTvOff">
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,on_tv_off),0)">$ADDON[service.webostv 32210]</value>

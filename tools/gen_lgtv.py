@@ -91,6 +91,10 @@ CATEGORIES = [
         ("radio", 303, a(32205), setting_bool("resume_on_return"), [("", run("setting", "resume_on_return"))],
          f"Integer.IsEqual(Addon.SettingInt({ADDON},on_switch_away),1)", a(32255)),
         ("radio", 304, a(32206), setting_bool("transparent_control"), [("", run("setting", "transparent_control"))], "", a(32256)),
+        ("header", 390, a(32600)),
+        ("button", 305, a(32602), run("bridge_setup"), "$VAR[LGTVRemoteBridge]", CONNECTED, a(32652)),
+        ("radio", 306, a(32601), setting_bool("remote_bridge"), [("", run("setting", "remote_bridge"))], "", a(32651)),
+        ("button", 307, a(32603), run("bridge_remove"), "", CONNECTED, a(32653)),
     ]),
     ("connection", s(31910), [
         ("button", 400, s(31911), run("ui", "status"), "$VAR[LGTVConnectionText]", "", ""),
@@ -349,6 +353,11 @@ def build_includes() -> str:
 	<variable name="LGTVKodiInput">
 		<value condition="!String.IsEmpty({P}(WebOS.KodiInput))">$INFO[{P}(WebOS.KodiInput)]</value>
 		<value>{a(32309)}</value>
+	</variable>
+	<variable name="LGTVRemoteBridge">
+		<value condition="String.IsEqual({P}(WebOS.RemoteBridge),connected)">[COLOR button_focus]{a(32620)}[/COLOR]</value>
+		<value condition="String.IsEqual({P}(WebOS.RemoteBridge),waiting)">{a(32621)}</value>
+		<value>{a(32622)}</value>
 	</variable>
 	<variable name="LGTVOnTvOff">
 {tv_off}

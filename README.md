@@ -30,7 +30,7 @@ The addon id is `skin.estuary.lg`, so it installs alongside the stock Estuary.
 | `xml/DialogPlayerProcessInfo.xml`, `xml/Includes_DVProcessInfo.xml` | CroqueMr's Dolby Vision panel from YBLOD's Estuary (video, audio, Dolby Vision / HDR metadata, rendering and output), in the skin's colour theme. Only YBLOD's Kodi fills it (`Window(playerprocessinfo).Property(DV.*)`, with *Enhanced player information* on), so on other builds the dialog is unchanged |
 | `xml/Settings.xml` | Top row holds 5 tiles with **LG TV** last (shown when service.webostv is enabled); the settings grid stays 4 per row, centred |
 | `xml/Includes.xml` | `SettingsPanel` tiles scaled to 85% (340×221) so the top row fits 5; includes `Includes_LGTV.xml` and `Includes_DVProcessInfo.xml` |
-| `xml/Custom_1120_LGTV.xml` | LG TV page, laid out like Estuary's settings pages: categories on the left (TV, Picture, Motion & sound, TV integration, Connection), options on the right, help text for the focused option, TV model and connection at the bottom left |
+| `xml/Custom_1120_LGTV.xml` | LG TV page, laid out like Estuary's settings pages: categories on the left (TV, Picture, Motion & sound, TV integration, Connection), options on the right, help text for the focused option, TV model and connection at the bottom left. TV integration includes the **Remote Bridge** section (set up, on/off, remove, connection status from `WebOS.RemoteBridge`) for rooted TVs |
 | `xml/Includes_LGTV.xml` | Variables for the LG TV page |
 | `xml/Font.xml`, `fonts/DMSans-*.ttf` | **DM Sans** fontset (*Settings → Interface → Skin → Fonts*): a copy of Default using DM Sans Regular, and DM Sans Bold for the bold-styled fonts. Clock and mono fonts unchanged. Both files carry Noto Sans's superscripts, subscripts and small capitals (ᴺᵉʷ ᴴᴰ ²), merged in by `tools/add_superscripts.py` (from skin.bald), since Kodi has no per-character font fallback. DM Sans covers Latin scripts only |
 | `media/icons/sidemenu/tv.png` | TV shows icon redrawn (stacked screens with a play symbol) so it no longer looks like Live TV |
@@ -46,7 +46,7 @@ The addon id is `skin.estuary.lg`, so it installs alongside the stock Estuary.
 
 TV controls are disabled while the TV isn't connected. On TVs whose webOS won't report the picture mode
 (`WebOS.PictureReadable` is `false`, e.g. webOS 5.5), presets still work from a built-in list and the Picture
-page notes that the current one shown is the last one set from Kodi. Needs service.webostv 0.6.0 or newer.
+page notes that the current one shown is the last one set from Kodi. Needs service.webostv 0.7.0 or newer.
 
 ## Dev deploy
 

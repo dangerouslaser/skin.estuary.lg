@@ -340,6 +340,37 @@
 						<onclick>RunScript(service.webostv,setting,transparent_control)</onclick>
 						<include>DefaultSettingButton</include>
 					</control>
+					<control type="label" id="390">
+						<width>1390</width>
+						<height>70</height>
+						<textoffsetx>40</textoffsetx>
+						<label>$ADDON[service.webostv 32600]</label>
+						<aligny>bottom</aligny>
+						<font>font25_title</font>
+						<textcolor>button_focus</textcolor>
+					</control>
+					<control type="button" id="305">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32602]</label>
+						<label2>$VAR[LGTVRemoteBridge]</label2>
+						<onclick>RunScript(service.webostv,bridge_setup)</onclick>
+						<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="radiobutton" id="306">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32601]</label>
+						<selected>Addon.SettingBool(service.webostv,remote_bridge)</selected>
+						<onclick>RunScript(service.webostv,setting,remote_bridge)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="307">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32603]</label>
+						<onclick>RunScript(service.webostv,bridge_remove)</onclick>
+						<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
 			</control>
 			<control type="grouplist" id="540">
 				<top>133</top>
