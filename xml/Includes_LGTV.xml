@@ -50,6 +50,7 @@
 	</variable>
 	<variable name="LGTVRemoteBridge">
 		<value condition="String.IsEqual(Window(Home).Property(WebOS.RemoteBridge),connected)">[COLOR button_focus]$ADDON[service.webostv 32620][/COLOR]</value>
+		<value condition="String.IsEqual(Window(Home).Property(WebOS.RemoteBridge),outdated)">[COLOR button_focus]$ADDON[service.webostv 32620][/COLOR] · $ADDON[service.webostv 32627]</value>
 		<value condition="String.IsEqual(Window(Home).Property(WebOS.RemoteBridge),waiting)">$ADDON[service.webostv 32621]</value>
 		<value>$ADDON[service.webostv 32622]</value>
 	</variable>

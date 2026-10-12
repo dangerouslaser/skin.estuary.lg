@@ -372,6 +372,7 @@ def build_includes() -> str:
 	</variable>
 	<variable name="LGTVRemoteBridge">
 		<value condition="String.IsEqual({P}(WebOS.RemoteBridge),connected)">[COLOR button_focus]{a(32620)}[/COLOR]</value>
+		<value condition="String.IsEqual({P}(WebOS.RemoteBridge),outdated)">[COLOR button_focus]{a(32620)}[/COLOR] · {a(32627)}</value>
 		<value condition="String.IsEqual({P}(WebOS.RemoteBridge),waiting)">{a(32621)}</value>
 		<value>{a(32622)}</value>
 	</variable>
