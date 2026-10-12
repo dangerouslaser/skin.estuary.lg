@@ -364,6 +364,22 @@
 						<onclick>RunScript(service.webostv,setting,remote_bridge)</onclick>
 						<include>DefaultSettingButton</include>
 					</control>
+					<control type="radiobutton" id="308">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32605]</label>
+						<selected>Addon.SettingBool(service.webostv,bridge_pointer)</selected>
+						<onclick>RunScript(service.webostv,setting,bridge_pointer)</onclick>
+						<enable>Addon.SettingBool(service.webostv,remote_bridge)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="309">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32606]</label>
+						<label2>$VAR[LGTVPointerSpeed]</label2>
+						<onclick>RunScript(service.webostv,setting,bridge_pointer_speed)</onclick>
+						<enable>Addon.SettingBool(service.webostv,bridge_pointer)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
 					<control type="button" id="307">
 						<width>1390</width>
 						<label>$ADDON[service.webostv 32603]</label>

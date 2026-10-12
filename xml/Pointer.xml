@@ -1,33 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Mouse pointer. With the Remote Bridge, service.webostv publishes the TV's own
+     webOS pointer images (WebOS.Pointer*); otherwise the skin's webOS-style ones
+     (media/pointer_*.png, tools/make_pointer.py). Both are 128x128 with the hotspot
+     at (40, 12), so left/top put it on the pointer position. -->
 <window>
 	<controls>
 		<control type="image" id="1">
 			<description>Pointer</description>
-			<left>-10</left>
-			<width>44</width>
-			<height>50</height>
-			<texture>pointer_arrow.png</texture>
+			<left>-40</left>
+			<top>-12</top>
+			<width>128</width>
+			<height>128</height>
+			<texture fallback="pointer_arrow.png">$INFO[Window(Home).Property(WebOS.Pointer)]</texture>
 		</control>
 		<control type="image" id="2">
 			<description>Pointer Focus</description>
-			<left>-10</left>
-			<width>44</width>
-			<height>50</height>
-			<texture>pointer_arrow.png</texture>
+			<left>-40</left>
+			<top>-12</top>
+			<width>128</width>
+			<height>128</height>
+			<texture fallback="pointer_focus.png">$INFO[Window(Home).Property(WebOS.PointerFocus)]</texture>
 		</control>
 		<control type="image" id="3">
 			<description>Pointer Drag</description>
-			<left>-10</left>
-			<width>44</width>
-			<height>50</height>
-			<texture>pointer_arrow.png</texture>
+			<left>-40</left>
+			<top>-12</top>
+			<width>128</width>
+			<height>128</height>
+			<texture fallback="pointer_arrow.png">$INFO[Window(Home).Property(WebOS.PointerDrag)]</texture>
 		</control>
 		<control type="image" id="4">
 			<description>pointer_click</description>
-			<left>-10</left>
-			<width>44</width>
-			<height>50</height>
-			<texture>pointer_click.png</texture>
+			<left>-40</left>
+			<top>-12</top>
+			<width>128</width>
+			<height>128</height>
+			<texture fallback="pointer_click.png">$INFO[Window(Home).Property(WebOS.PointerClick)]</texture>
 		</control>
 	</controls>
 </window>
