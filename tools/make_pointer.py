@@ -75,10 +75,10 @@ def drop() -> Image.Image:
 
 
 # Same layout as service.webostv's cursor.py, so Pointer.xml has one geometry
-# for these and for the TV's own pointer images: a 128x128 canvas with the
-# hotspot (topmost solid row's middle) at (40, 12).
-CANVAS = (128, 128)
-HOTSPOT = (40, 12)
+# for these and for the TV's own pointer images: a 256x256 canvas with the
+# hotspot (here the topmost solid row's middle) in its middle.
+CANVAS = (256, 256)
+HOTSPOT = (128, 128)
 
 
 def laid_out(img: Image.Image) -> Image.Image:

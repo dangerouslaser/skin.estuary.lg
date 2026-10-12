@@ -372,11 +372,67 @@
 						<enable>Addon.SettingBool(service.webostv,remote_bridge)</enable>
 						<include>DefaultSettingButton</include>
 					</control>
+					<control type="button" id="316">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32609]</label>
+						<label2>$VAR[LGTVWheelSpeed]</label2>
+						<onclick>RunScript(service.webostv,setting,bridge_wheel_speed)</onclick>
+						<enable>Addon.SettingBool(service.webostv,remote_bridge)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
 					<control type="button" id="309">
 						<width>1390</width>
 						<label>$ADDON[service.webostv 32606]</label>
+						<label2>$VAR[LGTVPointerWake]</label2>
+						<onclick>RunScript(service.webostv,setting,bridge_pointer_wake)</onclick>
+						<enable>Addon.SettingBool(service.webostv,bridge_pointer)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="radiobutton" id="310">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32607]</label>
+						<selected>Addon.SettingBool(service.webostv,bridge_pointer_return)</selected>
+						<onclick>RunScript(service.webostv,setting,bridge_pointer_return)</onclick>
+						<enable>Addon.SettingBool(service.webostv,bridge_pointer)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="311">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32630]</label>
 						<label2>$VAR[LGTVPointerSpeed]</label2>
-						<onclick>RunScript(service.webostv,setting,bridge_pointer_speed)</onclick>
+						<onclick>RunScript(service.webostv,setting,tv_pointer_speed)</onclick>
+						<enable>Addon.SettingBool(service.webostv,bridge_pointer)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="312">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32631]</label>
+						<label2>$VAR[LGTVPointerSize]</label2>
+						<onclick>RunScript(service.webostv,setting,tv_pointer_size)</onclick>
+						<enable>Addon.SettingBool(service.webostv,bridge_pointer)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="313">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32632]</label>
+						<label2>$VAR[LGTVPointerShape]</label2>
+						<onclick>RunScript(service.webostv,setting,tv_pointer_shape)</onclick>
+						<enable>Addon.SettingBool(service.webostv,bridge_pointer)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="radiobutton" id="314">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32633]</label>
+						<selected>Addon.SettingBool(service.webostv,tv_pointer_align)</selected>
+						<onclick>RunScript(service.webostv,setting,tv_pointer_align)</onclick>
+						<enable>Addon.SettingBool(service.webostv,bridge_pointer)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="radiobutton" id="315">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32634]</label>
+						<selected>Addon.SettingBool(service.webostv,tv_pointer_autohide)</selected>
+						<onclick>RunScript(service.webostv,setting,tv_pointer_autohide)</onclick>
 						<enable>Addon.SettingBool(service.webostv,bridge_pointer)</enable>
 						<include>DefaultSettingButton</include>
 					</control>
@@ -507,6 +563,7 @@
 				<texture colordiffuse="button_alt_focus">lists/focus.png</texture>
 				<visible>String.IsEqual(Window.Property(lgtv_category),connection) + !Control.HasFocus(25)</visible>
 			</control>
+			<include>WebOSSettingsPadRows</include>
 			<control type="grouplist" id="3">
 				<left>0</left>
 				<top>130</top>
@@ -575,6 +632,7 @@
 					<texturenofocus />
 				</control>
 			</control>
+			<include>WebOSSettingsPad</include>
 			<control type="image">
 				<left>20</left>
 				<bottom>110</bottom>

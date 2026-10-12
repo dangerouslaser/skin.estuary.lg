@@ -531,7 +531,7 @@
 				<include content="Visible_Right_Delayed">
 					<param name="id" value="$PARAM[id]"/>
 				</include>
-				<visible>String.IsEqual(Container(9000).ListItem.Property(id),$PARAM[id])</visible>
+				<visible>[[String.IsEmpty(Window(Home).Property(WebOS.HomeView)) + String.IsEqual(Container(9000).ListItem.Property(id),$PARAM[id])] | String.IsEqual(Window(Home).Property(WebOS.HomeView),$PARAM[id])]</visible>
 				<control type="group">
 					<visible>Integer.IsGreater(Container($PARAM[group_id]50).NumItems,0) | Container($PARAM[group_id]50).IsUpdating</visible>
 					<control type="panel" id="$PARAM[group_id]50">
@@ -1012,7 +1012,7 @@
 						<aligny>center</aligny>
 						<label>$INFO[Weather.Data(Current.Temperature)]</label>
 						<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched</visible>
-						<visible>!Window.IsActive(weather) + [!Window.IsActive(home) | !String.IsEqual(Container(9000).ListItem.Property(id),weather)]</visible>
+						<visible>!Window.IsActive(weather) + [!Window.IsActive(home) | ![[String.IsEmpty(Window(Home).Property(WebOS.HomeView)) + String.IsEqual(Container(9000).ListItem.Property(id),weather)] | String.IsEqual(Window(Home).Property(WebOS.HomeView),weather)]]</visible>
 					</control>
 					<control type="image">
 						<top>1</top>
@@ -1022,7 +1022,7 @@
 						<aspectratio aligny="center" align="left">keep</aspectratio>
 						<texture>$INFO[Weather.Data(Current.FanartCode),weather/small/,.png]</texture>
 						<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.Data(Current.FanartCode),na)]</visible>
-						<visible>!Window.IsActive(weather) + [!Window.IsActive(home) | !String.IsEqual(Container(9000).ListItem.Property(id),weather)]</visible>
+						<visible>!Window.IsActive(weather) + [!Window.IsActive(home) | ![[String.IsEmpty(Window(Home).Property(WebOS.HomeView)) + String.IsEqual(Container(9000).ListItem.Property(id),weather)] | String.IsEqual(Window(Home).Property(WebOS.HomeView),weather)]]</visible>
 					</control>
 					<control type="image">
 						<top>8</top>

@@ -20,6 +20,35 @@
 	<include name="HomeMenuRows9">
 		<height>855</height>
 	</include>
+	<!-- The side menu's mouse hit area: its icon column only. The list stays 462 wide
+	     for the labels, which are invisible while the menu is collapsed; with its full
+	     width as the hit area, the pointer opened the menu 370px before the icons. -->
+	<include name="HomeMenuHit4">
+		<hitrect x="0" y="0" w="110" h="380" />
+	</include>
+	<include name="HomeMenuHit5">
+		<hitrect x="0" y="0" w="110" h="475" />
+	</include>
+	<include name="HomeMenuHit6">
+		<hitrect x="0" y="0" w="110" h="570" />
+	</include>
+	<include name="HomeMenuHit7">
+		<hitrect x="0" y="0" w="110" h="665" />
+	</include>
+	<include name="HomeMenuHit8">
+		<hitrect x="0" y="0" w="110" h="760" />
+	</include>
+	<include name="HomeMenuHit9">
+		<hitrect x="0" y="0" w="110" h="855" />
+	</include>
+	<include name="HomeMenuHitRect">
+		<include condition="String.IsEqual(Skin.String(home_menu_rows),4)">HomeMenuHit4</include>
+		<include condition="String.IsEqual(Skin.String(home_menu_rows),5)">HomeMenuHit5</include>
+		<include condition="String.IsEqual(Skin.String(home_menu_rows),6)">HomeMenuHit6</include>
+		<include condition="String.IsEqual(Skin.String(home_menu_rows),7)">HomeMenuHit7</include>
+		<include condition="String.IsEqual(Skin.String(home_menu_rows),8)">HomeMenuHit8</include>
+		<include condition="![String.IsEqual(Skin.String(home_menu_rows),4) | String.IsEqual(Skin.String(home_menu_rows),5) | String.IsEqual(Skin.String(home_menu_rows),6) | String.IsEqual(Skin.String(home_menu_rows),7) | String.IsEqual(Skin.String(home_menu_rows),8)]">HomeMenuHit9</include>
+	</include>
 	<include name="HomeMenuHeight">
 		<include condition="String.IsEqual(Skin.String(home_menu_rows),4)">HomeMenuRows4</include>
 		<include condition="String.IsEqual(Skin.String(home_menu_rows),5)">HomeMenuRows5</include>
@@ -35,9 +64,99 @@
 	<!-- Home: the side menu collapses to icons while the content has focus. -->
 	<!-- 20000/20001 are Estuary's hidden "bounce" buttons at the top/bottom of the widgets; focus
 	     passes through them and straight back, so they count as content (no menu flash). -->
-	<!-- Collapsed unless the menu (9000) or its buttons (801-805) have focus.
+	<!-- Collapsed unless the menu (9000), its buttons (801-805) or the sidebar's hover pad (9100) have focus.
 	     Control.HasFocus reads the id Home remembers as focused; group focus
 	     flags would be cleared while a dialog (context menu, busy...) is open
 	     and for a moment after it closes, sliding the menu out and back. -->
-	<expression name="home_menu_collapsed">Window.IsActive(home) + !Control.HasFocus(9000) + !Control.HasFocus(801) + !Control.HasFocus(802) + !Control.HasFocus(803) + !Control.HasFocus(804) + !Control.HasFocus(805)</expression>
+	<expression name="home_menu_collapsed">Window.IsActive(home) + !Control.HasFocus(9000) + !Control.HasFocus(9100) + !Control.HasFocus(801) + !Control.HasFocus(802) + !Control.HasFocus(803) + !Control.HasFocus(804) + !Control.HasFocus(805)</expression>
+	<!-- Settings side menus under the Remote Bridge pointer (service.webostv FocusKeeper):
+	     Kodi switches category as soon as one gets focus, so while the pointer is in use a
+	     pad covers the list (WebOSSettingsPad, after it, so it's on top): hovering only
+	     highlights the row (WebOSSettingsPadRows, before it, so the labels stay on top;
+	     WebOS.PadRow), a click switches. Rows: top 130, 85 high, no gap (Defaults.xml). -->
+	<include name="WebOSSettingsPadRows">
+		<control type="image">
+			<left>0</left>
+			<top>130</top>
+			<width>470</width>
+			<height>85</height>
+			<texture colordiffuse="button_focus">lists/focus.png</texture>
+			<visible>Control.HasFocus(9101) + String.IsEqual(Window(Home).Property(WebOS.PadRow),0)</visible>
+		</control>
+		<control type="image">
+			<left>0</left>
+			<top>215</top>
+			<width>470</width>
+			<height>85</height>
+			<texture colordiffuse="button_focus">lists/focus.png</texture>
+			<visible>Control.HasFocus(9101) + String.IsEqual(Window(Home).Property(WebOS.PadRow),1)</visible>
+		</control>
+		<control type="image">
+			<left>0</left>
+			<top>300</top>
+			<width>470</width>
+			<height>85</height>
+			<texture colordiffuse="button_focus">lists/focus.png</texture>
+			<visible>Control.HasFocus(9101) + String.IsEqual(Window(Home).Property(WebOS.PadRow),2)</visible>
+		</control>
+		<control type="image">
+			<left>0</left>
+			<top>385</top>
+			<width>470</width>
+			<height>85</height>
+			<texture colordiffuse="button_focus">lists/focus.png</texture>
+			<visible>Control.HasFocus(9101) + String.IsEqual(Window(Home).Property(WebOS.PadRow),3)</visible>
+		</control>
+		<control type="image">
+			<left>0</left>
+			<top>470</top>
+			<width>470</width>
+			<height>85</height>
+			<texture colordiffuse="button_focus">lists/focus.png</texture>
+			<visible>Control.HasFocus(9101) + String.IsEqual(Window(Home).Property(WebOS.PadRow),4)</visible>
+		</control>
+		<control type="image">
+			<left>0</left>
+			<top>555</top>
+			<width>470</width>
+			<height>85</height>
+			<texture colordiffuse="button_focus">lists/focus.png</texture>
+			<visible>Control.HasFocus(9101) + String.IsEqual(Window(Home).Property(WebOS.PadRow),5)</visible>
+		</control>
+		<control type="image">
+			<left>0</left>
+			<top>640</top>
+			<width>470</width>
+			<height>85</height>
+			<texture colordiffuse="button_focus">lists/focus.png</texture>
+			<visible>Control.HasFocus(9101) + String.IsEqual(Window(Home).Property(WebOS.PadRow),6)</visible>
+		</control>
+		<control type="image">
+			<left>0</left>
+			<top>725</top>
+			<width>470</width>
+			<height>85</height>
+			<texture colordiffuse="button_focus">lists/focus.png</texture>
+			<visible>Control.HasFocus(9101) + String.IsEqual(Window(Home).Property(WebOS.PadRow),7)</visible>
+		</control>
+		<control type="image">
+			<left>0</left>
+			<top>810</top>
+			<width>470</width>
+			<height>85</height>
+			<texture colordiffuse="button_focus">lists/focus.png</texture>
+			<visible>Control.HasFocus(9101) + String.IsEqual(Window(Home).Property(WebOS.PadRow),8)</visible>
+		</control>
+	</include>
+	<include name="WebOSSettingsPad">
+		<control type="button" id="9101">
+			<left>0</left>
+			<top>130</top>
+			<width>470</width>
+			<height>810</height>
+			<texturefocus />
+			<texturenofocus />
+			<visible>String.IsEqual(Window(Home).Property(WebOS.Pointing),true)</visible>
+		</control>
+	</include>
 </includes>

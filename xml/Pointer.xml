@@ -3,40 +3,41 @@
      pointer images to its add-on data (and reloads the skin when they change: Kodi
      loads pointer textures with the skin, and ignores $INFO textures here). Without
      them the skin's webOS-style ones are the fallback (media/pointer_*.png,
-     tools/make_pointer.py). Both are 128x128 with the hotspot at (40, 12), so
-     left/top put it on the pointer position. -->
+     tools/make_pointer.py). Both are 256x256 with the hotspot in the middle (the TV's
+     pointer can point any way, in three sizes), so left/top put it on the pointer
+     position. -->
 <window>
 	<controls>
 		<control type="image" id="1">
 			<description>Pointer</description>
-			<left>-40</left>
-			<top>-12</top>
-			<width>128</width>
-			<height>128</height>
+			<left>-128</left>
+			<top>-128</top>
+			<width>256</width>
+			<height>256</height>
 			<texture fallback="pointer_arrow.png">special://profile/addon_data/service.webostv/pointer/point.png</texture>
 		</control>
 		<control type="image" id="2">
 			<description>Pointer Focus</description>
-			<left>-40</left>
-			<top>-12</top>
-			<width>128</width>
-			<height>128</height>
+			<left>-128</left>
+			<top>-128</top>
+			<width>256</width>
+			<height>256</height>
 			<texture fallback="pointer_focus.png">special://profile/addon_data/service.webostv/pointer/hover.png</texture>
 		</control>
 		<control type="image" id="3">
 			<description>Pointer Drag</description>
-			<left>-40</left>
-			<top>-12</top>
-			<width>128</width>
-			<height>128</height>
+			<left>-128</left>
+			<top>-128</top>
+			<width>256</width>
+			<height>256</height>
 			<texture fallback="pointer_arrow.png">special://profile/addon_data/service.webostv/pointer/drag.png</texture>
 		</control>
 		<control type="image" id="4">
 			<description>pointer_click</description>
-			<left>-40</left>
-			<top>-12</top>
-			<width>128</width>
-			<height>128</height>
+			<left>-128</left>
+			<top>-128</top>
+			<width>256</width>
+			<height>256</height>
 			<texture fallback="pointer_click.png">special://profile/addon_data/service.webostv/pointer/hold.png</texture>
 		</control>
 	</controls>

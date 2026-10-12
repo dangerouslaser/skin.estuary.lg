@@ -462,7 +462,7 @@
 		<value condition="Skin.HasSetting(no_fanart)"></value>
 		<value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>
 		<value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path))">$INFO[Skin.String(HomeFanart.path)]$INFO[Container(9000).ListItem.Property(id)]$INFO[Skin.String(HomeFanart.ext)]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path))">$INFO[Skin.String(HomeFanart.path)]$VAR[LGHomeSection]$INFO[Skin.String(HomeFanart.ext)]</value>
 	</variable>
 	<variable name="HomeFanartVar">
 		<value condition="Skin.HasSetting(no_fanart)"></value>
@@ -473,7 +473,7 @@
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path)) + Control.HasFocus(802)">$INFO[Skin.String(HomeFanart.path)]settings$INFO[Skin.String(HomeFanart.ext)]</value>
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path)) + Control.HasFocus(803)">$INFO[Skin.String(HomeFanart.path)]favorites$INFO[Skin.String(HomeFanart.ext)]</value>
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path)) + Control.HasFocus(801)">$INFO[Skin.String(HomeFanart.path)]search$INFO[Skin.String(HomeFanart.ext)]</value>
-		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path))">$INFO[Skin.String(HomeFanart.path)]$INFO[Container(9000).ListItem.Property(id)]$INFO[Skin.String(HomeFanart.ext)]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path))">$INFO[Skin.String(HomeFanart.path)]$VAR[LGHomeSection]$INFO[Skin.String(HomeFanart.ext)]</value>
 	</variable>
 	<variable name="MediaFanartVar">
 		<value condition="Skin.HasSetting(no_fanart)"></value>
@@ -993,4 +993,15 @@
 		<value condition="!String.IsEmpty(ListItem.BMP)">$INFO[ListItem.BMP]</value>
 	</variable>
 
+	<!-- The home section on show: the side menu's selection, or while the pointer is in use the
+	     section service.webostv froze (hovering the menu only highlights; a click switches). -->
+	<variable name="LGHomeSection">
+		<value condition="!String.IsEmpty(Window(Home).Property(WebOS.HomeView))">$INFO[Window(Home).Property(WebOS.HomeView)]</value>
+		<value>$INFO[Container(9000).ListItem.Property(id)]</value>
+	</variable>
+	<!-- For service.webostv's Remote Bridge pointer (Home.xml sets WebOS.PointerContext):
+	     how far the home rows have scrolled, so it remembers where items are per scroll. -->
+	<variable name="WebOSPointerContext">
+		<value condition="Window.IsActive(home)">$INFO[Container(5001).Position,5001:,]$INFO[Container(6001).Position,6001:,]$INFO[Container(7001).Position,7001:,]$INFO[Container(8001).Position,8001:,]$INFO[Container(18001).Position,18001:,]$INFO[Container(11001).Position,11001:,]$INFO[Container(12001).Position,12001:,]$INFO[Container(13001).Position,13001:,]$INFO[Container(15001).Position,15001:,]$INFO[Container(16001).Position,16001:,]$INFO[Container(4001).Position,4001:,]$INFO[Container(17001).Position,17001:,]</value>
+	</variable>
 </includes>

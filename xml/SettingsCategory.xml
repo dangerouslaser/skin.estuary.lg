@@ -90,6 +90,7 @@
 			<include content="ContentPanel">
 				<param name="width" value="530" />
 			</include>
+			<include>WebOSSettingsPadRows</include>
 			<control type="grouplist" id="3">
 				<description>button area</description>
 				<left>0</left>
@@ -113,6 +114,7 @@
 				<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
 				<texturenofocus />
 			</control>
+			<include>WebOSSettingsPad</include>
 		</control>
 		<control type="group">
 			<right>0</right>

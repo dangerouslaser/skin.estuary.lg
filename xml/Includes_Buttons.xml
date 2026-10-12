@@ -187,10 +187,21 @@
 	</include>
 	<include name="IconButton">
 		<param name="height">120</param>
+		<param name="width">120</param>
+		<param name="icon_x">40</param>
 		<param name="visible">true</param>
+		<param name="enable">true</param>
+		<!-- Optional fades/slides (Home's bottom row); off by default. "false" won't do:
+		     Kodi treats it as a conditional animation with no condition. -->
+		<param name="fade_out">Skin.HasSetting(lg_never)</param>
+		<param name="fade_in">Skin.HasSetting(lg_never)</param>
+		<param name="slide_a">0</param>
+		<param name="slide_a_when">Skin.HasSetting(lg_never)</param>
+		<param name="slide_b">0</param>
+		<param name="slide_b_when">Skin.HasSetting(lg_never)</param>
 		<definition>
 			<control type="radiobutton" id="$PARAM[control_id]">
-				<width>120</width>
+				<width>$PARAM[width]</width>
 				<height>$PARAM[height]</height>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -200,7 +211,7 @@
 				<label>$PARAM[label]</label>
 				<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
 				<texturenofocus />
-				<radioposx>40</radioposx>
+				<radioposx>$PARAM[icon_x]</radioposx>
 				<radioposy>0</radioposy>
 				<radiowidth>40</radiowidth>
 				<radioheight>40</radioheight>
@@ -209,6 +220,11 @@
 				<textureradioofffocus>$PARAM[icon]</textureradioofffocus>
 				<textureradiooffnofocus colordiffuse="grey">$PARAM[icon]</textureradiooffnofocus>
 				<visible>$PARAM[visible]</visible>
+				<enable>$PARAM[enable]</enable>
+				<animation effect="fade" start="100" end="0" time="75" reversible="false" condition="$PARAM[fade_out]">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="200" reversible="false" condition="$PARAM[fade_in]">Conditional</animation>
+				<animation effect="slide" end="$PARAM[slide_a],0" time="300" tween="cubic" easing="out" condition="$PARAM[slide_a_when]">Conditional</animation>
+				<animation effect="slide" end="$PARAM[slide_b],0" time="300" tween="cubic" easing="out" condition="$PARAM[slide_b_when]">Conditional</animation>
 			</control>
 		</definition>
 	</include>
