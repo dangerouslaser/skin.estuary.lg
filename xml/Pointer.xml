@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mouse pointer. With the Remote Bridge, service.webostv publishes the TV's own
-     webOS pointer images (WebOS.Pointer*); otherwise the skin's webOS-style ones
-     (media/pointer_*.png, tools/make_pointer.py). Both are 128x128 with the hotspot
-     at (40, 12), so left/top put it on the pointer position. -->
+<!-- Mouse pointer. With the Remote Bridge, service.webostv saves the TV's own webOS
+     pointer images to its add-on data (and reloads the skin when they change: Kodi
+     loads pointer textures with the skin, and ignores $INFO textures here). Without
+     them the skin's webOS-style ones are the fallback (media/pointer_*.png,
+     tools/make_pointer.py). Both are 128x128 with the hotspot at (40, 12), so
+     left/top put it on the pointer position. -->
 <window>
 	<controls>
 		<control type="image" id="1">
@@ -11,7 +13,7 @@
 			<top>-12</top>
 			<width>128</width>
 			<height>128</height>
-			<texture fallback="pointer_arrow.png">$INFO[Window(Home).Property(WebOS.Pointer)]</texture>
+			<texture fallback="pointer_arrow.png">special://profile/addon_data/service.webostv/pointer/point.png</texture>
 		</control>
 		<control type="image" id="2">
 			<description>Pointer Focus</description>
@@ -19,7 +21,7 @@
 			<top>-12</top>
 			<width>128</width>
 			<height>128</height>
-			<texture fallback="pointer_focus.png">$INFO[Window(Home).Property(WebOS.PointerFocus)]</texture>
+			<texture fallback="pointer_focus.png">special://profile/addon_data/service.webostv/pointer/hover.png</texture>
 		</control>
 		<control type="image" id="3">
 			<description>Pointer Drag</description>
@@ -27,7 +29,7 @@
 			<top>-12</top>
 			<width>128</width>
 			<height>128</height>
-			<texture fallback="pointer_arrow.png">$INFO[Window(Home).Property(WebOS.PointerDrag)]</texture>
+			<texture fallback="pointer_arrow.png">special://profile/addon_data/service.webostv/pointer/drag.png</texture>
 		</control>
 		<control type="image" id="4">
 			<description>pointer_click</description>
@@ -35,7 +37,7 @@
 			<top>-12</top>
 			<width>128</width>
 			<height>128</height>
-			<texture fallback="pointer_click.png">$INFO[Window(Home).Property(WebOS.PointerClick)]</texture>
+			<texture fallback="pointer_click.png">special://profile/addon_data/service.webostv/pointer/hold.png</texture>
 		</control>
 	</controls>
 </window>
