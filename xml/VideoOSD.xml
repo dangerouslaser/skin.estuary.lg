@@ -220,6 +220,14 @@
 						<visible>$EXP[setup_lg] + String.IsEqual(Window(Home).Property(WebOS.Connected),true)</visible>
 						<onclick>RunScript(service.webostv,ui,osd)</onclick>
 					</control>
+					<!-- skin.estuary.lg: audio receiver menu (service.denonavr): incoming format, how it plays, volume, mute -->
+					<control type="radiobutton" id="70050">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/receiver.png"/>
+						</include>
+						<visible>$EXP[setup_denon] + String.IsEqual(Window(Home).Property(Denon.Connected),true)</visible>
+						<onclick>RunScript(service.denonavr,osd)</onclick>
+					</control>
 					<!-- skin.estuary.lg: process info. On YBLOD (System.GetBool(yblod.build)) it opens Kodi's player process info
 					     dialog with the Dolby Vision panel; elsewhere it opens Bald Process Info (in the addon's chosen launch mode)
 					     and is shown only when that addon is installed and enabled -->

@@ -43,6 +43,7 @@
 					<label>$LOCALIZE[31949]</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.SelectBool(31949, 16018|setup_receiver_none, 31951|setup_receiver_denon)</onclick>
+					<onclick>Skin.SetBool(setup_receiver_chosen)</onclick>
 					<label2>$VAR[SetupReceiverLabel2Var]</label2>
 				</control>
 				<control type="radiobutton" id="701">
