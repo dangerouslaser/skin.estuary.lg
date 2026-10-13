@@ -367,6 +367,7 @@
 		<value condition="Control.HasFocus(70046)">$LOCALIZE[13392]</value>
 		<value condition="Control.HasFocus(70047)">$LOCALIZE[36501]</value>
 		<value condition="Control.HasFocus(70049)">$LOCALIZE[31931]$INFO[Window(Home).Property(WebOS.PicturePresetLabel), · ]</value>
+		<value condition="Control.HasFocus(70066)">$LOCALIZE[31953]$INFO[Window(Home).Property(Denon.Format), · ]</value>
 		<value condition="Control.HasFocus(70065) + System.GetBool(yblod.build)">$LOCALIZE[10116]</value>
 		<value condition="Control.HasFocus(70065)">$INFO[System.AddonTitle(script.bald.processinfo)]</value>
 		<value condition="Control.HasFocus(70048)">$LOCALIZE[5]</value>

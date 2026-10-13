@@ -351,7 +351,7 @@
 					</control>
 					<control type="button" id="305">
 						<width>1390</width>
-						<label>$ADDON[service.webostv 32602]</label>
+						<label>$VAR[LGTVRemoteBridgeAction]</label>
 						<label2>$VAR[LGTVRemoteBridge]</label2>
 						<onclick>RunScript(service.webostv,bridge_setup)</onclick>
 						<enable>String.IsEqual(Window(Home).Property(WebOS.Connected),true)</enable>
@@ -378,6 +378,14 @@
 						<label2>$VAR[LGTVWheelSpeed]</label2>
 						<onclick>RunScript(service.webostv,setting,bridge_wheel_speed)</onclick>
 						<enable>Addon.SettingBool(service.webostv,remote_bridge)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="radiobutton" id="317">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32635]</label>
+						<selected>Addon.SettingBool(service.webostv,bridge_volume_receiver)</selected>
+						<onclick>RunScript(service.webostv,setting,bridge_volume_receiver)</onclick>
+						<enable>Addon.SettingBool(service.webostv,remote_bridge) + $EXP[setup_denon]</enable>
 						<include>DefaultSettingButton</include>
 					</control>
 					<control type="button" id="309">

@@ -11,6 +11,7 @@
 	<include file="Includes_Maps.xml" />
 	<include file="Includes_MusicInfo.xml" />
 	<include file="Includes_LGTV.xml" />
+	<include file="Includes_Denon.xml" />
 	<include file="Includes_DVProcessInfo.xml" />
 	<include file="Includes_Custom.xml" />
 	<include file="Includes_PVR.xml" />
@@ -32,6 +33,8 @@
 	<!-- The setup chosen in Skin settings > General (TV, audio receiver), and its add-on there. -->
 	<expression name="setup_lg">Skin.HasSetting(setup_tv_lg) + System.AddonIsEnabled(service.webostv)</expression>
 	<expression name="setup_denon">Skin.HasSetting(setup_receiver_denon) + System.AddonIsEnabled(service.denonavr)</expression>
+	<!-- a TV or receiver is set up: the Settings screen shows its home theater row -->
+	<expression name="setup_home_theater">$EXP[setup_lg] | $EXP[setup_denon]</expression>
 	<expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-image.xml)</expression>
 	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131)</expression>
 	<expression name="videoasset_true">Container.Content(videoassets) | Container.Content(videoversions) | Container.Content(videoextras)</expression>
@@ -1500,78 +1503,98 @@
 		</control>
 	</include>
 	<!-- skin.estuary.yblod: tiles scaled to 85% so rows hold 5 (Settings.xml) -->
+	<!-- skin.estuary.yblod: the Settings screen's tiles, 300x195 (Estuary's are 340x221) so that three
+	     groups of four columns (tools, home theater, settings) fit between the top and bottom bars -->
 	<include name="SettingsPanel">
-		<itemlayout height="221" width="340">
+		<itemlayout height="195" width="300">
 			<control type="image">
 				<left>-5</left>
-				<width>350</width>
-				<height>230</height>
+				<width>310</width>
+				<height>203</height>
 				<texture>dialogs/dialog-bg-nobo.png</texture>
 				<bordertexture border="21" infill="false">overlays/shadow.png</bordertexture>
 				<bordersize>20</bordersize>
 			</control>
 			<control type="image">
 				<centerleft>50%</centerleft>
-				<top>26</top>
-				<width>204</width>
-				<height>136</height>
+				<top>23</top>
+				<width>180</width>
+				<height>120</height>
 				<texture>$INFO[ListItem.Icon]</texture>
 				<align>center</align>
 				<aspectratio>scale</aspectratio>
 			</control>
 			<control type="label">
-				<left>15</left>
-				<top>162</top>
-				<width>310</width>
+				<left>13</left>
+				<top>140</top>
+				<width>274</width>
 				<height>400</height>
 				<label>$INFO[ListItem.Label]</label>
 				<align>center</align>
 			</control>
 		</itemlayout>
-		<focusedlayout height="221" width="340">
+		<focusedlayout height="195" width="300">
 			<control type="group">
 				<depth>DepthContentPopout</depth>
 				<animation type="Focus" reversible="false">
-					<effect type="zoom" center="170,119" start="100" end="110" time="250" tween="sine" />
+					<effect type="zoom" center="150,105" start="100" end="110" time="250" tween="sine" />
 				</animation>
 				<animation type="UnFocus" reversible="false">
-					<effect type="zoom" center="170,119" start="110" end="100" time="250" tween="sine" />
+					<effect type="zoom" center="150,105" start="110" end="100" time="250" tween="sine" />
 				</animation>
 				<control type="image">
 					<left>-5</left>
-					<width>350</width>
-					<height>230</height>
+					<width>310</width>
+					<height>203</height>
 					<texture>dialogs/dialog-bg-nobo.png</texture>
 					<bordertexture border="21" infill="false">overlays/shadow.png</bordertexture>
 					<bordersize>20</bordersize>
 				</control>
 				<control type="image">
 					<left>-5</left>
-					<width>350</width>
-					<height>230</height>
+					<width>310</width>
+					<height>203</height>
 					<texture colordiffuse="button_focus">colors/grey.png</texture>
 					<bordersize>20</bordersize>
 					<include>Animation_FocusTextureFade</include>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>
-					<top>26</top>
-					<width>204</width>
-					<height>136</height>
+					<top>23</top>
+					<width>180</width>
+					<height>120</height>
 					<texture>$INFO[ListItem.Icon]</texture>
 					<align>center</align>
 					<aspectratio>scale</aspectratio>
 				</control>
 				<control type="label">
-					<left>15</left>
-					<top>162</top>
-					<width>310</width>
+					<left>13</left>
+					<top>140</top>
+					<width>274</width>
 					<height>400</height>
 					<label>$INFO[ListItem.Label]</label>
 					<align>center</align>
 				</control>
 			</control>
 		</focusedlayout>
+	</include>
+	<!-- skin.estuary.yblod: Settings screen, moving into the home theater row (9002) from the same column of
+	     the row in $PARAM[from]; past its last tile (it may hold fewer than four), to that tile -->
+	<include name="SettingsDownToHomeTheater">
+		<definition>
+			<ondown condition="Integer.IsEqual(Container(9002).NumItems,1)">Control.SetFocus(9002,0,absolute)</ondown>
+			<ondown condition="Integer.IsEqual(Container(9002).NumItems,2) + Integer.IsGreater(Container($PARAM[from]).Position,0)">Control.SetFocus(9002,1,absolute)</ondown>
+			<ondown condition="Integer.IsEqual(Container(9002).NumItems,3) + Integer.IsGreater(Container($PARAM[from]).Position,1)">Control.SetFocus(9002,2,absolute)</ondown>
+			<ondown condition="Integer.IsGreater(Container(9002).NumItems,3) | [Integer.IsEqual(Container(9002).NumItems,2) + Integer.IsEqual(Container($PARAM[from]).Position,0)] | [Integer.IsEqual(Container(9002).NumItems,3) + Integer.IsLess(Container($PARAM[from]).Position,2)]">Control.SetFocus(9002,$INFO[Container($PARAM[from]).Position],absolute)</ondown>
+		</definition>
+	</include>
+	<include name="SettingsUpToHomeTheater">
+		<definition>
+			<onup condition="Integer.IsEqual(Container(9002).NumItems,1)">Control.SetFocus(9002,0,absolute)</onup>
+			<onup condition="Integer.IsEqual(Container(9002).NumItems,2) + Integer.IsGreater(Container($PARAM[from]).Position,0)">Control.SetFocus(9002,1,absolute)</onup>
+			<onup condition="Integer.IsEqual(Container(9002).NumItems,3) + Integer.IsGreater(Container($PARAM[from]).Position,1)">Control.SetFocus(9002,2,absolute)</onup>
+			<onup condition="Integer.IsGreater(Container(9002).NumItems,3) | [Integer.IsEqual(Container(9002).NumItems,2) + Integer.IsEqual(Container($PARAM[from]).Position,0)] | [Integer.IsEqual(Container(9002).NumItems,3) + Integer.IsLess(Container($PARAM[from]).Position,2)]">Control.SetFocus(9002,$INFO[Container($PARAM[from]).Position],absolute)</onup>
+		</definition>
 	</include>
 	<include name="MediaInfoListLayout">
 		<param name="height">125</param>

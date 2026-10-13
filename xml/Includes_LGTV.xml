@@ -28,6 +28,7 @@
 		<value condition="Control.HasFocus(306)">$ADDON[service.webostv 32651]</value>
 		<value condition="Control.HasFocus(308)">$ADDON[service.webostv 32655]</value>
 		<value condition="Control.HasFocus(316)">$ADDON[service.webostv 32659]</value>
+		<value condition="Control.HasFocus(317)">$ADDON[service.webostv 32685]</value>
 		<value condition="Control.HasFocus(309)">$ADDON[service.webostv 32656]</value>
 		<value condition="Control.HasFocus(310)">$ADDON[service.webostv 32657]</value>
 		<value condition="Control.HasFocus(311)">$ADDON[service.webostv 32680]</value>
@@ -48,9 +49,13 @@
 		<value condition="!String.IsEmpty(Window(Home).Property(WebOS.KodiInput))">$INFO[Window(Home).Property(WebOS.KodiInput)]</value>
 		<value>$ADDON[service.webostv 32309]</value>
 	</variable>
+	<variable name="LGTVRemoteBridgeAction">
+		<value condition="String.IsEqual(Window(Home).Property(WebOS.RemoteBridge),outdated)">$ADDON[service.webostv 32636]</value>
+		<value>$ADDON[service.webostv 32602]</value>
+	</variable>
 	<variable name="LGTVRemoteBridge">
-		<value condition="String.IsEqual(Window(Home).Property(WebOS.RemoteBridge),connected)">[COLOR button_focus]$ADDON[service.webostv 32620][/COLOR]</value>
-		<value condition="String.IsEqual(Window(Home).Property(WebOS.RemoteBridge),outdated)">[COLOR button_focus]$ADDON[service.webostv 32620][/COLOR] · $ADDON[service.webostv 32627]</value>
+		<value condition="String.IsEqual(Window(Home).Property(WebOS.RemoteBridge),connected)">[COLOR button_focus]$ADDON[service.webostv 32620][/COLOR]$INFO[Window(Home).Property(WebOS.Remote), · ]</value>
+		<value condition="String.IsEqual(Window(Home).Property(WebOS.RemoteBridge),outdated)">[COLOR button_focus]$ADDON[service.webostv 32620][/COLOR]$INFO[Window(Home).Property(WebOS.Remote), · ] · $ADDON[service.webostv 32627]</value>
 		<value condition="String.IsEqual(Window(Home).Property(WebOS.RemoteBridge),waiting)">$ADDON[service.webostv 32621]</value>
 		<value>$ADDON[service.webostv 32622]</value>
 	</variable>

@@ -21,23 +21,19 @@
 			<top>0</top>
 			<bottom>0</bottom>
 			<include>OpenClose_Right</include>
-			<control type="label">
-				<left>0</left>
-				<right>0</right>
-				<top>420</top>
-				<height>400</height>
-				<label>$LOCALIZE[5]</label>
-				<align>center</align>
-				<font>font37</font>
-			</control>
+			<!-- skin.estuary.yblod: three groups of four columns, with a gap between them: tools (9000), home
+			     theater (9002: the TV and receiver pages, when set up) and settings (9001) -->
 			<control type="panel" id="9000">
-				<left>0</left>
-				<width>100%</width>
+				<left>250</left>
+				<width>1200</width>
 				<top>120</top>
-				<height>300</height>
+				<height>195</height>
 				<onup>Control.SetFocus(9001,$INFO[Container(9000).Position],absolute)</onup>
 				<onup>Down</onup>
-				<ondown>Control.SetFocus(9001,$INFO[Container(9000).Position],absolute)</ondown>
+				<ondown condition="!$EXP[setup_home_theater]">Control.SetFocus(9001,$INFO[Container(9000).Position],absolute)</ondown>
+				<include content="SettingsDownToHomeTheater">
+					<param name="from" value="9000" />
+				</include>
 				<include>SettingsPanel</include>
 				<content>
 					<item>
@@ -67,20 +63,42 @@
 						<icon>icons/settings/eventlog.png</icon>
 						<visible>!System.HasAddon(service.libreelec.settings)</visible>
 					</item>
+				</content>
+			</control>
+			<control type="panel" id="9002">
+				<left>250</left>
+				<width>1200</width>
+				<top>345</top>
+				<height>195</height>
+				<visible>$EXP[setup_home_theater]</visible>
+				<onup>Control.SetFocus(9000,$INFO[Container(9002).Position],absolute)</onup>
+				<ondown>Control.SetFocus(9001,$INFO[Container(9002).Position],absolute)</ondown>
+				<include>SettingsPanel</include>
+				<content>
 					<item>
 						<label>$LOCALIZE[31900]</label>
 						<onclick>ActivateWindow(1120)</onclick>
 						<icon>icons/settings/lgtv.png</icon>
 						<visible>$EXP[setup_lg]</visible>
 					</item>
+					<item>
+						<label>$LOCALIZE[31953]</label>
+						<onclick>ActivateWindow(1121)</onclick>
+						<icon>icons/settings/receiver.png</icon>
+						<visible>$EXP[setup_denon]</visible>
+					</item>
 				</content>
 			</control>
 			<control type="panel" id="9001">
-				<left>170</left>
-				<width>1360</width>
-				<top>470</top>
-				<bottom>0</bottom>
-				<onup>Control.SetFocus(9000,$INFO[Container(9001).Position],absolute)</onup>
+				<left>250</left>
+				<width>1200</width>
+				<top>570</top>
+				<height>390</height>
+				<animation effect="slide" end="0,-225" time="0" condition="!$EXP[setup_home_theater]">Conditional</animation>
+				<onup condition="!$EXP[setup_home_theater]">Control.SetFocus(9000,$INFO[Container(9001).Position],absolute)</onup>
+				<include content="SettingsUpToHomeTheater">
+					<param name="from" value="9001" />
+				</include>
 				<ondown>Up</ondown>
 				<ondown>Control.SetFocus(9000,$INFO[Container(9001).Position],absolute)</ondown>
 				<include>SettingsPanel</include>

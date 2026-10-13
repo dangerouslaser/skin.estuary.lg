@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- skin.estuary.yblod: the audio receiver's volume (service.denonavr), shown for a moment
+     whenever it changes: the remote's volume buttons, the receiver's own remote, Home
+     Assistant. Same ring and place as Kodi's volume bar (DialogVolumeBar.xml), with the
+     receiver's volume number inside. -->
+<window type="dialog" id="1122">
+	<visible>$EXP[setup_denon] + String.IsEqual(Window(Home).Property(Denon.VolumeShow),true) + !Window.IsActive(startup)</visible>
+	<zorder>4</zorder>
+	<controls>
+		<control type="group">
+			<centerleft>50%</centerleft>
+			<width>112</width>
+			<top>0</top>
+			<animation effect="fade" start="0" end="100" time="150">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+			<control type="image">
+				<left>12</left>
+				<top>5</top>
+				<width>88</width>
+				<height>88</height>
+				<texture>osd/buffer-bg.png</texture>
+			</control>
+			<control type="image">
+				<left>22</left>
+				<top>15</top>
+				<width>68</width>
+				<height>68</height>
+				<texture>dialogs/extendedprogress/loading-back.png</texture>
+			</control>
+			<control type="image">
+				<left>22</left>
+				<top>15</top>
+				<width>68</width>
+				<height>68</height>
+				<texture>$INFO[Window(Home).Property(Denon.VolumePercent),dialogs/volume/progress/p,.png]</texture>
+				<animation effect="fade" start="100" end="30" time="200" condition="String.IsEqual(Window(Home).Property(Denon.Mute),true)">Conditional</animation>
+			</control>
+			<control type="label">
+				<left>22</left>
+				<top>15</top>
+				<width>68</width>
+				<height>68</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font12</font>
+				<label>$INFO[Window(Home).Property(Denon.VolumeDisplay)]</label>
+				<visible>!String.IsEqual(Window(Home).Property(Denon.Mute),true)</visible>
+			</control>
+			<control type="image">
+				<left>36</left>
+				<top>29</top>
+				<width>40</width>
+				<height>40</height>
+				<texture colordiffuse="white">dialogs/volume/mute.png</texture>
+				<visible>String.IsEqual(Window(Home).Property(Denon.Mute),true)</visible>
+			</control>
+		</control>
+	</controls>
+</window>

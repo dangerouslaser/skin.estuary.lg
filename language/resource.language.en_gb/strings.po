@@ -1182,3 +1182,75 @@ msgstr ""
 msgctxt "#31952"
 msgid "add-on not installed"
 msgstr ""
+
+msgctxt "#31953"
+msgid "Denon receiver"
+msgstr ""
+
+msgctxt "#31954"
+msgid "Receiver"
+msgstr ""
+
+msgctxt "#31955"
+msgid "Find receiver on the network"
+msgstr ""
+
+msgctxt "#31956"
+msgid "Receiver address"
+msgstr ""
+
+msgctxt "#31957"
+msgid "Incoming audio"
+msgstr ""
+
+msgctxt "#31958"
+msgid "Playing as"
+msgstr ""
+
+msgctxt "#31959"
+msgid "Volume step"
+msgstr ""
+
+msgctxt "#31960"
+msgid "Maximum volume"
+msgstr ""
+
+msgctxt "#31961"
+msgid "TV remote"
+msgstr ""
+
+msgctxt "#31962"
+msgid "Looks for Denon receivers on your network and uses the one you pick. Denon receivers need no pairing."
+msgstr ""
+
+msgctxt "#31963"
+msgid "Type the receiver's IP address if it isn't found on the network."
+msgstr ""
+
+msgctxt "#31964"
+msgid "How much one volume up or down press changes the receiver's volume."
+msgstr ""
+
+msgctxt "#31965"
+msgid "Nothing in Kodi turns the receiver up past this, a safety cap. 0 dB is reference level (80 on the receiver's display)."
+msgstr ""
+
+msgctxt "#31966"
+msgid "Turns the receiver on, or puts it in standby."
+msgstr ""
+
+msgctxt "#31967"
+msgid "Standby"
+msgstr ""
+
+msgctxt "#31968"
+msgid "Select to open the receiver menu: incoming audio, how it plays, volume and mute."
+msgstr ""
+
+msgctxt "#31969"
+msgid "The audio format coming in from Kodi, and how the receiver decodes it, as the receiver reports them. Its calibrated sound modes are never changed."
+msgstr ""
+
+msgctxt "#31970"
+msgid "No signal"
+msgstr ""
