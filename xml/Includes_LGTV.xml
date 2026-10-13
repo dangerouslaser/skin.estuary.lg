@@ -14,8 +14,30 @@
 		<value condition="Control.HasFocus(501)">$ADDON[service.webostv 32452]</value>
 		<value condition="Control.HasFocus(502)">$ADDON[service.webostv 32453]</value>
 		<value condition="Control.HasFocus(506)">$ADDON[service.webostv 32571]</value>
+		<value condition="Control.HasFocus(511)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),5)</value>
+		<value condition="Control.HasFocus(512)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),5)</value>
+		<value condition="Control.HasFocus(513)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),5)</value>
+		<value condition="Control.HasFocus(514)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),5)</value>
 		<value condition="Control.HasFocus(507)">$ADDON[service.webostv 32572]</value>
+		<value condition="Control.HasFocus(515)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),5)</value>
+		<value condition="Control.HasFocus(516)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),5)</value>
+		<value condition="Control.HasFocus(517)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),5)</value>
+		<value condition="Control.HasFocus(518)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),5)</value>
 		<value condition="Control.HasFocus(508)">$ADDON[service.webostv 32573]</value>
+		<value condition="Control.HasFocus(519)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),5)</value>
+		<value condition="Control.HasFocus(520)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),5)</value>
+		<value condition="Control.HasFocus(521)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),5)</value>
+		<value condition="Control.HasFocus(522)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),5)</value>
+		<value condition="Control.HasFocus(509)">$ADDON[service.webostv 32575]</value>
+		<value condition="Control.HasFocus(523)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),6)</value>
+		<value condition="Control.HasFocus(524)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),6)</value>
+		<value condition="Control.HasFocus(525)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),6)</value>
+		<value condition="Control.HasFocus(526)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),6)</value>
+		<value condition="Control.HasFocus(510)">$ADDON[service.webostv 32574]</value>
+		<value condition="Control.HasFocus(527)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),5)</value>
+		<value condition="Control.HasFocus(528)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),5)</value>
+		<value condition="Control.HasFocus(529)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),5)</value>
+		<value condition="Control.HasFocus(530)">Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),5)</value>
 		<value condition="Control.HasFocus(503)">$ADDON[service.webostv 32454]</value>
 		<value condition="Control.HasFocus(504)">$ADDON[service.webostv 32455]</value>
 		<value condition="Control.HasFocus(505)">$ADDON[service.webostv 32456]</value>
@@ -97,6 +119,7 @@
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),2)">$ADDON[service.webostv 32532]</value>
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),3)">$ADDON[service.webostv 32533]</value>
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),4)">$ADDON[service.webostv 32534]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),5)">$ADDON[service.webostv 32537]</value>
 	</variable>
 	<variable name="LGTVQualitySD">
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),0)">$ADDON[service.webostv 32530]</value>
@@ -104,6 +127,7 @@
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),2)">$ADDON[service.webostv 32532]</value>
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),3)">$ADDON[service.webostv 32533]</value>
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),4)">$ADDON[service.webostv 32534]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),5)">$ADDON[service.webostv 32537]</value>
 	</variable>
 	<variable name="LGTVQualityHD">
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),0)">$ADDON[service.webostv 32530]</value>
@@ -111,6 +135,174 @@
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),2)">$ADDON[service.webostv 32532]</value>
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),3)">$ADDON[service.webostv 32533]</value>
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),4)">$ADDON[service.webostv 32534]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),5)">$ADDON[service.webostv 32537]</value>
+	</variable>
+	<variable name="LGTVQualityUHD">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),0)">$ADDON[service.webostv 32536]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),1)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),2)">$ADDON[service.webostv 32531]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),3)">$ADDON[service.webostv 32532]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),4)">$ADDON[service.webostv 32533]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),5)">$ADDON[service.webostv 32534]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),6)">$ADDON[service.webostv 32537]</value>
+	</variable>
+	<variable name="LGTVQualityRestore">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),0)">$ADDON[service.webostv 32535]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),1)">$ADDON[service.webostv 32531]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),2)">$ADDON[service.webostv 32532]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),3)">$ADDON[service.webostv 32533]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),4)">$ADDON[service.webostv 32534]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),5)">$ADDON[service.webostv 32537]</value>
+	</variable>
+	<variable name="LGTVQ_livetv_nr">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_nr),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_nr),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_nr),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_nr),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_nr),4)">$ADDON[service.webostv 32514]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_nr),5)">$ADDON[service.webostv 32515]</value>
+	</variable>
+	<variable name="LGTVQ_livetv_mpeg">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_mpeg),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_mpeg),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_mpeg),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_mpeg),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_mpeg),4)">$ADDON[service.webostv 32514]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_mpeg),5)">$ADDON[service.webostv 32515]</value>
+	</variable>
+	<variable name="LGTVQ_livetv_grad">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_grad),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_grad),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_grad),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_grad),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_grad),4)">$ADDON[service.webostv 32514]</value>
+	</variable>
+	<variable name="LGTVQ_livetv_sr">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_sr),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_sr),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_sr),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_sr),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv_sr),4)">$ADDON[service.webostv 32514]</value>
+	</variable>
+	<variable name="LGTVQ_sd_nr">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_nr),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_nr),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_nr),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_nr),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_nr),4)">$ADDON[service.webostv 32514]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_nr),5)">$ADDON[service.webostv 32515]</value>
+	</variable>
+	<variable name="LGTVQ_sd_mpeg">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_mpeg),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_mpeg),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_mpeg),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_mpeg),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_mpeg),4)">$ADDON[service.webostv 32514]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_mpeg),5)">$ADDON[service.webostv 32515]</value>
+	</variable>
+	<variable name="LGTVQ_sd_grad">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_grad),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_grad),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_grad),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_grad),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_grad),4)">$ADDON[service.webostv 32514]</value>
+	</variable>
+	<variable name="LGTVQ_sd_sr">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_sr),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_sr),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_sr),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_sr),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd_sr),4)">$ADDON[service.webostv 32514]</value>
+	</variable>
+	<variable name="LGTVQ_hd_nr">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_nr),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_nr),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_nr),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_nr),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_nr),4)">$ADDON[service.webostv 32514]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_nr),5)">$ADDON[service.webostv 32515]</value>
+	</variable>
+	<variable name="LGTVQ_hd_mpeg">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_mpeg),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_mpeg),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_mpeg),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_mpeg),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_mpeg),4)">$ADDON[service.webostv 32514]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_mpeg),5)">$ADDON[service.webostv 32515]</value>
+	</variable>
+	<variable name="LGTVQ_hd_grad">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_grad),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_grad),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_grad),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_grad),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_grad),4)">$ADDON[service.webostv 32514]</value>
+	</variable>
+	<variable name="LGTVQ_hd_sr">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_sr),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_sr),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_sr),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_sr),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd_sr),4)">$ADDON[service.webostv 32514]</value>
+	</variable>
+	<variable name="LGTVQ_uhd_nr">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_nr),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_nr),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_nr),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_nr),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_nr),4)">$ADDON[service.webostv 32514]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_nr),5)">$ADDON[service.webostv 32515]</value>
+	</variable>
+	<variable name="LGTVQ_uhd_mpeg">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_mpeg),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_mpeg),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_mpeg),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_mpeg),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_mpeg),4)">$ADDON[service.webostv 32514]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_mpeg),5)">$ADDON[service.webostv 32515]</value>
+	</variable>
+	<variable name="LGTVQ_uhd_grad">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_grad),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_grad),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_grad),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_grad),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_grad),4)">$ADDON[service.webostv 32514]</value>
+	</variable>
+	<variable name="LGTVQ_uhd_sr">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_sr),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_sr),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_sr),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_sr),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd_sr),4)">$ADDON[service.webostv 32514]</value>
+	</variable>
+	<variable name="LGTVQ_restore_nr">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_nr),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_nr),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_nr),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_nr),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_nr),4)">$ADDON[service.webostv 32514]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_nr),5)">$ADDON[service.webostv 32515]</value>
+	</variable>
+	<variable name="LGTVQ_restore_mpeg">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_mpeg),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_mpeg),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_mpeg),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_mpeg),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_mpeg),4)">$ADDON[service.webostv 32514]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_mpeg),5)">$ADDON[service.webostv 32515]</value>
+	</variable>
+	<variable name="LGTVQ_restore_grad">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_grad),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_grad),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_grad),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_grad),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_grad),4)">$ADDON[service.webostv 32514]</value>
+	</variable>
+	<variable name="LGTVQ_restore_sr">
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_sr),0)">$ADDON[service.webostv 32530]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_sr),1)">$ADDON[service.webostv 32510]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_sr),2)">$ADDON[service.webostv 32512]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_sr),3)">$ADDON[service.webostv 32513]</value>
+		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore_sr),4)">$ADDON[service.webostv 32514]</value>
 	</variable>
 	<variable name="LGTVSoundVideo">
 		<value condition="Integer.IsEqual(Addon.SettingInt(service.webostv,sound_video),0)">$ADDON[service.webostv 32420]</value>

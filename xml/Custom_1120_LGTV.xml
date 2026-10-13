@@ -247,6 +247,38 @@
 						<onclick>RunScript(service.webostv,setting,quality_livetv)</onclick>
 						<include>DefaultSettingButton</include>
 					</control>
+					<control type="button" id="511">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32502]</label>
+						<label2>$VAR[LGTVQ_livetv_nr]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_livetv_nr)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="512">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32503]</label>
+						<label2>$VAR[LGTVQ_livetv_mpeg]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_livetv_mpeg)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="513">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32504]</label>
+						<label2>$VAR[LGTVQ_livetv_grad]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_livetv_grad)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="514">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32505]</label>
+						<label2>$VAR[LGTVQ_livetv_sr]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_livetv_sr)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_livetv),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
 					<control type="button" id="507">
 						<width>1390</width>
 						<label>$ADDON[service.webostv 32522]</label>
@@ -254,11 +286,153 @@
 						<onclick>RunScript(service.webostv,setting,quality_sd)</onclick>
 						<include>DefaultSettingButton</include>
 					</control>
+					<control type="button" id="515">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32502]</label>
+						<label2>$VAR[LGTVQ_sd_nr]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_sd_nr)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="516">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32503]</label>
+						<label2>$VAR[LGTVQ_sd_mpeg]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_sd_mpeg)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="517">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32504]</label>
+						<label2>$VAR[LGTVQ_sd_grad]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_sd_grad)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="518">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32505]</label>
+						<label2>$VAR[LGTVQ_sd_sr]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_sd_sr)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_sd),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
 					<control type="button" id="508">
 						<width>1390</width>
 						<label>$ADDON[service.webostv 32523]</label>
 						<label2>$VAR[LGTVQualityHD]</label2>
 						<onclick>RunScript(service.webostv,setting,quality_hd)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="519">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32502]</label>
+						<label2>$VAR[LGTVQ_hd_nr]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_hd_nr)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="520">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32503]</label>
+						<label2>$VAR[LGTVQ_hd_mpeg]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_hd_mpeg)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="521">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32504]</label>
+						<label2>$VAR[LGTVQ_hd_grad]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_hd_grad)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="522">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32505]</label>
+						<label2>$VAR[LGTVQ_hd_sr]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_hd_sr)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_hd),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="509">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32525]</label>
+						<label2>$VAR[LGTVQualityUHD]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_uhd)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="523">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32502]</label>
+						<label2>$VAR[LGTVQ_uhd_nr]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_uhd_nr)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),6)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="524">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32503]</label>
+						<label2>$VAR[LGTVQ_uhd_mpeg]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_uhd_mpeg)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),6)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="525">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32504]</label>
+						<label2>$VAR[LGTVQ_uhd_grad]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_uhd_grad)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),6)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="526">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32505]</label>
+						<label2>$VAR[LGTVQ_uhd_sr]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_uhd_sr)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_uhd),6)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="510">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32524]</label>
+						<label2>$VAR[LGTVQualityRestore]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_restore)</onclick>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="527">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32502]</label>
+						<label2>$VAR[LGTVQ_restore_nr]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_restore_nr)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="528">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32503]</label>
+						<label2>$VAR[LGTVQ_restore_mpeg]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_restore_mpeg)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="529">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32504]</label>
+						<label2>$VAR[LGTVQ_restore_grad]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_restore_grad)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),5)</visible>
+						<include>DefaultSettingButton</include>
+					</control>
+					<control type="button" id="530">
+						<width>1390</width>
+						<label>      $ADDON[service.webostv 32505]</label>
+						<label2>$VAR[LGTVQ_restore_sr]</label2>
+						<onclick>RunScript(service.webostv,setting,quality_restore_sr)</onclick>
+						<visible>Integer.IsEqual(Addon.SettingInt(service.webostv,quality_restore),5)</visible>
 						<include>DefaultSettingButton</include>
 					</control>
 					<control type="label" id="591">

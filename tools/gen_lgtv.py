@@ -44,6 +44,41 @@ def setting_bool(key: str) -> str:
 #   ("note", id, label, visible)
 # Label rows need ids too: grouplists link up/down navigation by id, and
 # focus skips through a label only if it has one.
+# Source quality: one row per source, then (with Custom) a row per cleanup. Source:
+# (row id, setting, label, help, variable, the setting's Custom index).
+QUALITY_SOURCES = (
+    (506, "livetv", 32521, 32571, "LGTVQualityLiveTV", 5),
+    (507, "sd", 32522, 32572, "LGTVQualitySD", 5),
+    (508, "hd", 32523, 32573, "LGTVQualityHD", 5),
+    (509, "uhd", 32525, 32575, "LGTVQualityUHD", 6),
+    (510, "restore", 32524, 32574, "LGTVQualityRestore", 5),
+)
+# Custom cleanups: (short name, label, value labels: leave unchanged, off, low, medium, high[, auto]).
+QUALITY_CUSTOM = (
+    ("nr", 32502, (32530, 32510, 32512, 32513, 32514, 32515)),
+    ("mpeg", 32503, (32530, 32510, 32512, 32513, 32514, 32515)),
+    ("grad", 32504, (32530, 32510, 32512, 32513, 32514)),
+    ("sr", 32505, (32530, 32510, 32512, 32513, 32514)),
+)
+QUALITY_LABELS = {  # each source setting's value labels
+    "uhd": (32536, 32530, 32531, 32532, 32533, 32534, 32537),
+    "restore": (32535, 32531, 32532, 32533, 32534, 32537),
+}
+QUALITY_LEVEL_LABELS = (32530, 32531, 32532, 32533, 32534, 32537)
+
+
+def quality_rows() -> list[tuple]:
+    rows = []
+    for n, (cid, source, label, help_id, var, custom) in enumerate(QUALITY_SOURCES):
+        rows.append(("button", cid, a(label), run("setting", f"quality_{source}"), f"$VAR[{var}]", "", a(help_id)))
+        shown = f"Integer.IsEqual(Addon.SettingInt({ADDON},quality_{source}),{custom})"
+        for m, (short, sub_label, _values) in enumerate(QUALITY_CUSTOM):
+            key = f"quality_{source}_{short}"
+            rows.append(("button", 511 + n * 4 + m, "      " + a(sub_label), run("setting", key),
+                         f"$VAR[LGTVQ_{source}_{short}]", "", a(32576), shown))
+    return rows
+
+
 CATEGORIES = [
     ("tv", s(31917), [
         ("button", 100, s(31902), run("ui", "input"), f"$INFO[{P}(WebOS.AppTitle)]", CONNECTED, ""),
@@ -76,9 +111,7 @@ CATEGORIES = [
         ("button", 501, a(32402), run("setting", "motion_video"), "$VAR[LGTVMotionVideo]", "", a(32452)),
         ("button", 502, a(32403), run("setting", "motion_restore"), "$VAR[LGTVMotionRestore]", "", a(32453)),
         ("header", 592, a(32520)),
-        ("button", 506, a(32521), run("setting", "quality_livetv"), "$VAR[LGTVQualityLiveTV]", "", a(32571)),
-        ("button", 507, a(32522), run("setting", "quality_sd"), "$VAR[LGTVQualitySD]", "", a(32572)),
-        ("button", 508, a(32523), run("setting", "quality_hd"), "$VAR[LGTVQualityHD]", "", a(32573)),
+        *quality_rows(),
         ("header", 591, a(32408)),
         ("button", 503, a(32404), run("setting", "sound_video"), "$VAR[LGTVSoundVideo]", "", a(32454)),
         ("button", 504, a(32405), run("setting", "sound_livetv"), "$VAR[LGTVSoundLiveTV]", "", a(32455)),
@@ -141,7 +174,8 @@ def row(r: tuple, t: str) -> str:
 {t}	<textcolor>button_focus</textcolor>
 {t}</control>"""
     if kind == "button":
-        _, cid, label, onclick, label2, enable, _help = r
+        _, cid, label, onclick, label2, enable, _help, *more = r
+        visible = more[0] if more else ""  # optional: shown only while this holds
         lines = [f'<control type="button" id="{cid}">', "\t<width>1390</width>",
                  f"\t<label>{label}</label>"]
         if label2:
@@ -156,6 +190,8 @@ def row(r: tuple, t: str) -> str:
             lines.append(f"\t<onclick{c}>{action}</onclick>")
     if enable:
         lines.append(f"\t<enable>{enable}</enable>")
+    if kind == "button" and visible:
+        lines.append(f"\t<visible>{visible}</visible>")
     lines += ["\t<include>DefaultSettingButton</include>", "</control>"]
     return "\n".join(t + line for line in lines)
 
@@ -349,18 +385,22 @@ def build_includes() -> str:
         for i in range(3))
 
     def option_var(name: str, key: str, first: int, count: int) -> str:
+        return option_labels(name, key, tuple(range(first, first + count)))
+
+    def option_labels(name: str, key: str, labels: tuple[int, ...]) -> str:
         values = "\n".join(
-            f'\t\t<value condition="Integer.IsEqual(Addon.SettingInt({ADDON},{key}),{i})">{a(first + i)}</value>'
-            for i in range(count))
+            f'\t\t<value condition="Integer.IsEqual(Addon.SettingInt({ADDON},{key}),{i})">{a(label)}</value>'
+            for i, label in enumerate(labels))
         return f'\t<variable name="{name}">\n{values}\n\t</variable>'
 
     options = "\n".join([
         option_var("LGTVMotionFilm", "motion_film", 32410, 5),
         option_var("LGTVMotionVideo", "motion_video", 32410, 5),
         option_var("LGTVMotionRestore", "motion_restore", 32410, 5),
-        option_var("LGTVQualityLiveTV", "quality_livetv", 32530, 5),
-        option_var("LGTVQualitySD", "quality_sd", 32530, 5),
-        option_var("LGTVQualityHD", "quality_hd", 32530, 5),
+        *(option_labels(var, f"quality_{source}", QUALITY_LABELS.get(source, QUALITY_LEVEL_LABELS))
+          for _cid, source, _l, _h, var, _c in QUALITY_SOURCES),
+        *(option_labels(f"LGTVQ_{source}_{short}", f"quality_{source}_{short}", values)
+          for _cid, source, _l, _h, _v, _c in QUALITY_SOURCES for short, _sl, values in QUALITY_CUSTOM),
         option_var("LGTVSoundVideo", "sound_video", 32420, 6),
         option_var("LGTVSoundLiveTV", "sound_livetv", 32420, 6),
         option_var("LGTVSoundMusic", "sound_music", 32420, 6),
