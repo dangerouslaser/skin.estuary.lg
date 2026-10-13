@@ -357,7 +357,7 @@
 						<param name="scrollbar_id" value="8010"/>
 					</include>
 				</control>
-				<!-- skin.estuary.lg: LG TV apps and inputs (service.webostv plugin) -->
+				<!-- skin.estuary.yblod: LG TV apps and inputs (service.webostv plugin) -->
 				<control type="group" id="18000">
 					<visible>[String.IsEmpty(Window(Home).Property(WebOS.HomeView)) + String.IsEqual(Container(9000).ListItem.Property(id),lgtv)] | String.IsEqual(Window(Home).Property(WebOS.HomeView),lgtv)</visible>
 					<include content="Visible_Right_Delayed">
@@ -658,9 +658,9 @@
 						<control type="group" id="16678">
 							<description>Weather info</description>
 							<left>68</left>
-							<!-- skin.estuary.lg: +367 because the widget area extends past the screen edge (collapsing side menu) -->
+							<!-- skin.estuary.yblod: +367 because the widget area extends past the screen edge (collapsing side menu) -->
 							<right>437</right>
-							<!-- skin.estuary.lg: down 20 to line up with the first row of tiles on the other pages -->
+							<!-- skin.estuary.yblod: down 20 to line up with the first row of tiles on the other pages -->
 							<top>122</top>
 							<height>360</height>
 							<visible>!String.IsEmpty(Weather.plugin)</visible>
@@ -981,7 +981,7 @@
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<focusedlayout height="95">
 						<control type="group">
-							<!-- skin.estuary.lg: stays while the menu is collapsed (the bar shrinks to the icon square) -->
+							<!-- skin.estuary.yblod: stays while the menu is collapsed (the bar shrinks to the icon square) -->
 							<animation effect="fade" start="100" end="0" time="0" condition="!Control.HasFocus(9000) + !Control.HasFocus(9100) + !$EXP[home_menu_collapsed]">Conditional</animation>
 							<control type="image">
 								<left>0</left>
@@ -990,7 +990,7 @@
 								<height>95</height>
 								<texture colordiffuse="button_focus">lists/focus.png</texture>
 								<animation effect="fade" start="100" end="0" time="0" condition="[!Control.HasFocus(9000) + !Control.HasFocus(9100) + !$EXP[home_menu_collapsed]] | System.HasActiveModalDialog">Conditional</animation>
-								<!-- skin.estuary.lg: grows out of the icon square with the panel when the menu expands -->
+								<!-- skin.estuary.yblod: grows out of the icon square with the panel when the menu expands -->
 								<animation effect="slide" end="-367,0" time="300" tween="cubic" easing="out" condition="$EXP[home_menu_collapsed]">Conditional</animation>
 							</control>
 							<control type="image">

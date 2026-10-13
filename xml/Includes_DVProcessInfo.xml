@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- skin.estuary.lg: CroqueMr's Dolby Vision player information panel for DialogPlayerProcessInfo.xml, ported from
+<!-- skin.estuary.yblod: CroqueMr's Dolby Vision player information panel for DialogPlayerProcessInfo.xml, ported from
      YBLOD's stock Estuary version (IncludesDVProcessInfo.xml). Only YBLOD Kodi sets the Window(playerprocessinfo)
      DV.* properties (DV.Enhanced follows its dvbridge.enhancedinfo setting), so on other Kodi builds nothing here
      is visible. YBLOD's Kodi addresses controls 9400/9401 (GPU gauges), 9600/9601 (panels), 9610/9611 (backgrounds)

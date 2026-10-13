@@ -942,7 +942,7 @@
 		<value condition="!RetroPlayer.DiscEjected">60FFFFFF</value>
 		<value>FFFFFFFF</value>
 	</variable>
-	<!-- skin.estuary.lg: media flag chip labels -->
+	<!-- skin.estuary.yblod: media flag chip labels -->
 	<variable name="LGFlagResolution">
 		<value condition="ListItem.IsStereoscopic">3D</value>
 		<value condition="String.IsEqual(ListItem.VideoResolution,4K) | String.IsEqual(ListItem.VideoResolution,8K)">$INFO[ListItem.VideoResolution]</value>

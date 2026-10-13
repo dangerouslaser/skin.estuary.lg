@@ -1,4 +1,4 @@
-"""Build an installable skin zip: dist/skin.estuary.lg-<version>.zip."""
+"""Build an installable skin zip: dist/skin.estuary.yblod-<version>.zip."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ADDON_ID = "skin.estuary.lg"
+ADDON_ID = "skin.estuary.yblod"
 EXCLUDE_TOP = {".git", ".github", "dist", "scripts", "tools", ".gitignore"}
 
 

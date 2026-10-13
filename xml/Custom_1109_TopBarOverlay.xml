@@ -209,7 +209,7 @@
 						<scroll>true</scroll>
 					</control>
 				</control>
-				<!-- skin.estuary.lg: live TV shows the channel logo before the title -->
+				<!-- skin.estuary.yblod: live TV shows the channel logo before the title -->
 				<control type="image">
 					<visible>VideoPlayer.Content(LiveTV) + !String.IsEmpty(Player.Icon)</visible>
 					<visible>!Window.IsActive(pvrosdchannels) + !Window.IsActive(pvrchannelguide)</visible>

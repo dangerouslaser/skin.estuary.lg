@@ -311,7 +311,7 @@
 		</definition>
 	</include>
 	<include name="MediaFlags">
-		<!-- skin.estuary.lg: media flags as chips (after skin.bald) filled with the theme's primary
+		<!-- skin.estuary.yblod: media flags as chips (after skin.bald) filled with the theme's primary
 		     colour so they read over widgets and fanart. Each flag can be hidden in Skin settings > General. -->
 		<definition>
 			<control type="grouplist">
@@ -1499,7 +1499,7 @@
 			<visible>!Window.IsVisible(PictureInfo)</visible>
 		</control>
 	</include>
-	<!-- skin.estuary.lg: tiles scaled to 85% so rows hold 5 (Settings.xml) -->
+	<!-- skin.estuary.yblod: tiles scaled to 85% so rows hold 5 (Settings.xml) -->
 	<include name="SettingsPanel">
 		<itemlayout height="221" width="340">
 			<control type="image">

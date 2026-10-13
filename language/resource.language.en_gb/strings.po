@@ -1005,7 +1005,7 @@ msgctxt "#31615"
 msgid "Subtitle language"
 msgstr ""
 
-# skin.estuary.lg: LG TV (31900-31999)
+# skin.estuary.yblod: LG TV (31900-31999)
 
 msgctxt "#31900"
 msgid "LG TV"

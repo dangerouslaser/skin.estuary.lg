@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- skin.estuary.lg: hand-written includes. -->
+<!-- skin.estuary.yblod: hand-written includes. -->
 <includes>
 	<!-- Home side menu height: Skin.String(home_menu_rows) rows of 95px, 4-9 (default and max 9: more would overlap the power/settings/search row). -->
 	<include name="HomeMenuRows4">

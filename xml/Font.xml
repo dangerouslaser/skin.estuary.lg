@@ -156,7 +156,7 @@
 			<size>26</size>
 		</font>
 	</fontset>
-	<!-- skin.estuary.lg: Default with DM Sans (real Bold for the bold-styled fonts). -->
+	<!-- skin.estuary.yblod: Default with DM Sans (real Bold for the bold-styled fonts). -->
 	<fontset id="DMSans" idloc="31932">
 		<!-- Normal Fonts -->
 		<font>

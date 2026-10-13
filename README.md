@@ -1,4 +1,4 @@
-# skin.estuary.lg (Estuary LG)
+# skin.estuary.yblod (Estuary YBLOD)
 
 Kodi's Estuary skin with LG webOS TV integration from
 [service.webostv](https://github.com/dangerouslaser/kodi-webos-control).
@@ -10,7 +10,10 @@ Kodi's Estuary skin with LG webOS TV integration from
   Settings screen matches LibreELEC 13 builds.
 - Then our changes, kept in separate commits so a newer Estuary can be merged in.
 
-The addon id is `skin.estuary.lg`, so it installs alongside the stock Estuary.
+The addon id is `skin.estuary.yblod`, so it installs alongside the stock Estuary.
+
+It was `skin.estuary.lg` (Estuary LG) up to 4.1.0+lg.16. service.webostv 0.8.3 and later move a box
+from the old id to this one once: the old skin's settings are copied over and the skin is switched.
 
 ## Changes
 
@@ -56,10 +59,10 @@ page notes that the current one shown is the last one set from Kodi. Needs servi
 ## Build
 
 ```sh
-python3 scripts/build_zip.py   # -> dist/skin.estuary.lg-<version>.zip
+python3 scripts/build_zip.py   # -> dist/skin.estuary.yblod-<version>.zip
 ```
 
-Install from zip in Kodi, then *Settings → Interface → Skin → Estuary LG*.
+Install from zip in Kodi, then *Settings → Interface → Skin → Estuary YBLOD*.
 
 ## License
 

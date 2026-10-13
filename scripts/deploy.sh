@@ -3,7 +3,7 @@
 #   scripts/deploy.sh            (KODI_HOST defaults to 192.168.1.175)
 set -eu
 HOST="${KODI_HOST:-192.168.1.175}"
-ID=skin.estuary.lg
+ID=skin.estuary.yblod
 DEST=/storage/.kodi/addons/$ID
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
