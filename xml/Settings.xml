@@ -71,7 +71,7 @@
 						<label>$LOCALIZE[31900]</label>
 						<onclick>ActivateWindow(1120)</onclick>
 						<icon>icons/settings/lgtv.png</icon>
-						<visible>System.AddonIsEnabled(service.webostv)</visible>
+						<visible>$EXP[setup_lg]</visible>
 					</item>
 				</content>
 			</control>

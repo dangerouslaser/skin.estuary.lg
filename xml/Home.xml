@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>9000</defaultcontrol>
+	<!-- Skin settings > General > TV: LG on boxes that had the LG add-on before the choice existed. -->
+	<onload condition="!Skin.HasSetting(setup_chosen) + System.HasAddon(service.webostv)">Skin.SetBool(setup_tv_lg)</onload>
+	<onload condition="!Skin.HasSetting(setup_chosen)">Skin.SetBool(setup_chosen)</onload>
 	<!-- For service.webostv's Remote Bridge: where the remote's scroll wheel moves by
 	     button instead of Kodi's analog scroll. Sideways: horizontal rows (the home
 	     widgets, the Poster and Shift views). Buttons: grid panels (Wall, Banner,
@@ -1137,7 +1140,7 @@
 							<property name="menu_id">$NUMBER[18000]</property>
 							<thumb>icons/sidemenu/lgtv.png</thumb>
 							<property name="id">lgtv</property>
-							<visible>System.AddonIsEnabled(service.webostv) + !Skin.HasSetting(HomeMenuNoLGTVButton)</visible>
+							<visible>$EXP[setup_lg] + !Skin.HasSetting(HomeMenuNoLGTVButton)</visible>
 						</item>
 						<item>
 							<label>$LOCALIZE[1]</label>

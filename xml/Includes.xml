@@ -29,6 +29,9 @@
 	<include file="Variables.xml" />
 	<include condition="Integer.IsLessOrEqual(System.ScreenHeight,720)" file="Constants_720.xml" />
 	<include condition="Integer.IsGreater(System.ScreenHeight,720)" file="Constants_1080.xml" />
+	<!-- The setup chosen in Skin settings > General (TV, audio receiver), and its add-on there. -->
+	<expression name="setup_lg">Skin.HasSetting(setup_tv_lg) + System.AddonIsEnabled(service.webostv)</expression>
+	<expression name="setup_denon">Skin.HasSetting(setup_receiver_denon) + System.AddonIsEnabled(service.denonavr)</expression>
 	<expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-image.xml)</expression>
 	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131)</expression>
 	<expression name="videoasset_true">Container.Content(videoassets) | Container.Content(videoversions) | Container.Content(videoextras)</expression>

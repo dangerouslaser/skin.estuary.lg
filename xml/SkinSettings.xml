@@ -32,6 +32,19 @@
 				<onup>700</onup>
 				<ondown>700</ondown>
 				<visible>Container(9000).HasFocus(1)</visible>
+				<!-- Your setup: which TV and audio receiver add-ons the skin shows. -->
+				<control type="button" id="7010">
+					<label>$LOCALIZE[31948]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.SelectBool(31948, 16018|setup_tv_none, 31950|setup_tv_lg)</onclick>
+					<label2>$VAR[SetupTVLabel2Var]</label2>
+				</control>
+				<control type="button" id="7011">
+					<label>$LOCALIZE[31949]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.SelectBool(31949, 16018|setup_receiver_none, 31951|setup_receiver_denon)</onclick>
+					<label2>$VAR[SetupReceiverLabel2Var]</label2>
+				</control>
 				<control type="radiobutton" id="701">
 					<label>$LOCALIZE[31095]</label>
 					<include>DefaultSettingButton</include>
@@ -385,7 +398,7 @@
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(HomeMenuNoLGTVButton)</selected>
 					<onclick>Skin.ToggleSetting(HomeMenuNoLGTVButton)</onclick>
-					<visible>System.HasAddon(service.webostv)</visible>
+					<visible>$EXP[setup_lg]</visible>
 				</control>
 			</control>
 			<control type="grouplist" id="622">

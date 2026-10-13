@@ -217,7 +217,7 @@
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/lgtv.png"/>
 						</include>
-						<visible>System.AddonIsEnabled(service.webostv) + String.IsEqual(Window(Home).Property(WebOS.Connected),true)</visible>
+						<visible>$EXP[setup_lg] + String.IsEqual(Window(Home).Property(WebOS.Connected),true)</visible>
 						<onclick>RunScript(service.webostv,ui,osd)</onclick>
 					</control>
 					<!-- skin.estuary.lg: process info. On YBLOD (System.GetBool(yblod.build)) it opens Kodi's player process info

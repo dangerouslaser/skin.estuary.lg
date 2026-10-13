@@ -1004,4 +1004,14 @@
 	<variable name="WebOSPointerContext">
 		<value condition="Window.IsActive(home)">$INFO[Container(5001).Position,5001:,]$INFO[Container(6001).Position,6001:,]$INFO[Container(7001).Position,7001:,]$INFO[Container(8001).Position,8001:,]$INFO[Container(18001).Position,18001:,]$INFO[Container(11001).Position,11001:,]$INFO[Container(12001).Position,12001:,]$INFO[Container(13001).Position,13001:,]$INFO[Container(15001).Position,15001:,]$INFO[Container(16001).Position,16001:,]$INFO[Container(4001).Position,4001:,]$INFO[Container(17001).Position,17001:,]</value>
 	</variable>
+	<variable name="SetupTVLabel2Var">
+		<value condition="Skin.HasSetting(setup_tv_lg) + !System.HasAddon(service.webostv)">$LOCALIZE[31950] · $LOCALIZE[31952]</value>
+		<value condition="Skin.HasSetting(setup_tv_lg)">$LOCALIZE[31950]</value>
+		<value>$LOCALIZE[16018]</value>
+	</variable>
+	<variable name="SetupReceiverLabel2Var">
+		<value condition="Skin.HasSetting(setup_receiver_denon) + !System.HasAddon(service.denonavr)">$LOCALIZE[31951] · $LOCALIZE[31952]</value>
+		<value condition="Skin.HasSetting(setup_receiver_denon)">$LOCALIZE[31951]</value>
+		<value>$LOCALIZE[16018]</value>
+	</variable>
 </includes>
