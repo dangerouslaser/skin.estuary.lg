@@ -159,4 +159,61 @@
 			<visible>String.IsEqual(Window(Home).Property(WebOS.Pointing),true)</visible>
 		</control>
 	</include>
+	<!-- service.webostv: the TV guide's group selector (fixedlist 11) under the
+	     Remote Bridge pointer. Hovering it slid the list along and switched
+	     groups; while pointing, this pad covers it, the group under the pointer
+	     gets the highlight (WebOS.PadRow: its slot), and a click switches. -->
+	<include name="WebOSGuidePadSlots">
+		<control type="image">
+			<left>41</left>
+			<top>0</top>
+			<width>366</width>
+			<height>50</height>
+			<texture colordiffuse="button_focus">colors/white.png</texture>
+			<visible>Control.HasFocus(9102) + String.IsEqual(Window(Home).Property(WebOS.PadRow),0)</visible>
+		</control>
+		<control type="image">
+			<left>409</left>
+			<top>0</top>
+			<width>366</width>
+			<height>50</height>
+			<texture colordiffuse="button_focus">colors/white.png</texture>
+			<visible>Control.HasFocus(9102) + String.IsEqual(Window(Home).Property(WebOS.PadRow),1)</visible>
+		</control>
+		<control type="image">
+			<left>777</left>
+			<top>0</top>
+			<width>366</width>
+			<height>50</height>
+			<texture colordiffuse="button_focus">colors/white.png</texture>
+			<visible>Control.HasFocus(9102) + String.IsEqual(Window(Home).Property(WebOS.PadRow),2)</visible>
+		</control>
+		<control type="image">
+			<left>1145</left>
+			<top>0</top>
+			<width>366</width>
+			<height>50</height>
+			<texture colordiffuse="button_focus">colors/white.png</texture>
+			<visible>Control.HasFocus(9102) + String.IsEqual(Window(Home).Property(WebOS.PadRow),3)</visible>
+		</control>
+		<control type="image">
+			<left>1513</left>
+			<top>0</top>
+			<width>366</width>
+			<height>50</height>
+			<texture colordiffuse="button_focus">colors/white.png</texture>
+			<visible>Control.HasFocus(9102) + String.IsEqual(Window(Home).Property(WebOS.PadRow),4)</visible>
+		</control>
+	</include>
+	<include name="WebOSGuidePad">
+		<control type="button" id="9102">
+			<left>40</left>
+			<top>0</top>
+			<width>1840</width>
+			<height>50</height>
+			<texturefocus />
+			<texturenofocus />
+			<visible>String.IsEqual(Window(Home).Property(WebOS.Pointing),true)</visible>
+		</control>
+	</include>
 </includes>

@@ -59,6 +59,10 @@
 							<visible>Control.HasFocus(11) + !String.IsEqual(Container(11).CurrentItem, Container(11).NumItems)</visible>
 						</control>
 					</control>
+					<control type="group">
+						<visible>Control.IsVisible(50) | Control.IsVisible(51)</visible>
+						<include>WebOSGuidePadSlots</include>
+					</control>
 					<control type="fixedlist" id="11">
 						<top>0</top>
 						<left>40</left>
@@ -108,6 +112,10 @@
 								<label>$INFO[ListItem.Label]</label>
 							</control>
 						</focusedlayout>
+					</control>
+					<control type="group">
+						<visible>Control.IsVisible(50) | Control.IsVisible(51)</visible>
+						<include>WebOSGuidePad</include>
 					</control>
 					<control type="group" id="63">
 						<include content="EpgGrid">
