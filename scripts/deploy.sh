@@ -7,6 +7,9 @@ ID=skin.estuary.yblod
 DEST=/storage/.kodi/addons/$ID
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
+# Nothing broken goes to a box: duplicate ids, missing strings, stale generated files.
+python3 "$ROOT/tools/lint_skin.py" || { echo "lint failed: not deploying" >&2; exit 1; }
+
 COPYFILE_DISABLE=1 tar -C "$ROOT" -cf - \
   --exclude ./.git --exclude ./.github --exclude ./dist --exclude ./scripts --exclude ./tools --exclude .DS_Store . |
   ssh "root@$HOST" "set -e; rm -rf $DEST.new; mkdir -p $DEST.new; tar -xf - -C $DEST.new;

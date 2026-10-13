@@ -1,0 +1,35 @@
+name: Lint
+
+# tools/lint_skin.py on every push and pull request: XML that parses, no
+# duplicate control ids in a window, every string, $VAR, $EXP and include
+# defined, generated files up to date. The add-ons whose strings the skin uses
+# are checked out next to it, so their $ADDON[...] strings are checked too.
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: skin.estuary.yblod
+      - uses: actions/checkout@v4
+        with:
+          repository: dangerouslaser/kodi-webos-control
+          path: kodi-webos-control
+      - uses: actions/checkout@v4
+        with:
+          repository: dangerouslaser/kodi-denon-control
+          path: kodi-denon-control
+      - uses: actions/checkout@v4
+        with:
+          repository: dangerouslaser/kodi-sonos-control
+          path: kodi-sonos-control
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Lint the skin
+        run: python3 skin.estuary.yblod/tools/lint_skin.py

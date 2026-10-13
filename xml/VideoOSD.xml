@@ -212,30 +212,30 @@
 						<onclick>SetProperty(settingsdialog_header,$LOCALIZE[36501],home)</onclick>
 						<onclick>ActivateWindow(1101)</onclick>
 					</control>
-					<!-- skin.estuary.yblod: LG TV menu (service.webostv): picture, motion, sound, volume, screen -->
+					<!-- skin.estuary.yblod: LG TV panel (Custom_1126, service.webostv): picture, motion, sound, volume, screen -->
 					<control type="radiobutton" id="70049">
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/lgtv.png"/>
 						</include>
 						<visible>$EXP[setup_lg] + String.IsEqual(Window(Home).Property(WebOS.Connected),true)</visible>
-						<onclick>RunScript(service.webostv,ui,osd)</onclick>
+						<onclick>ActivateWindow(1126)</onclick>
 					</control>
-					<!-- skin.estuary.yblod: audio receiver menu (service.denonavr): incoming format, how it plays, volume, mute.
+					<!-- skin.estuary.yblod: Denon panel (Custom_1125, service.denonavr): incoming format, how it plays, volume, mute.
 					     Not 70050: Variables.xml labels that id as the music OSD's RadioText button -->
 					<control type="radiobutton" id="70066">
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/receiver.png"/>
 						</include>
 						<visible>$EXP[setup_denon] + String.IsEqual(Window(Home).Property(Denon.Connected),true)</visible>
-						<onclick>RunScript(service.denonavr,osd)</onclick>
+						<onclick>ActivateWindow(1125)</onclick>
 					</control>
-					<!-- skin.estuary.yblod: Sonos menu (service.sonos): incoming format, volume, mute, night mode, speech enhancement -->
+					<!-- skin.estuary.yblod: Sonos panel (Custom_1124, service.sonos; icon: tools/make_sonos_icon.py): incoming format, volume, mute, night mode, speech enhancement -->
 					<control type="radiobutton" id="70067">
 						<include content="OSDButton">
-							<param name="texture" value="osd/fullscreen/buttons/soundbar.png"/>
+							<param name="texture" value="osd/fullscreen/buttons/sonos.png"/>
 						</include>
 						<visible>$EXP[setup_sonos] + String.IsEqual(Window(Home).Property(Sonos.Connected),true)</visible>
-						<onclick>RunScript(service.sonos,osd)</onclick>
+						<onclick>ActivateWindow(1124)</onclick>
 					</control>
 					<!-- skin.estuary.yblod: process info. On YBLOD (System.GetBool(yblod.build)) it opens Kodi's player process info
 					     dialog with the Dolby Vision panel; elsewhere it opens Bald Process Info (in the addon's chosen launch mode)

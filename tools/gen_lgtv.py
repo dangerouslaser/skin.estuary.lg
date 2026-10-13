@@ -45,13 +45,15 @@ def setting_bool(key: str) -> str:
 # Label rows need ids too: grouplists link up/down navigation by id, and
 # focus skips through a label only if it has one.
 # Source quality: one row per source, then (with Custom) a row per cleanup. Source:
-# (row id, setting, label, help, variable, the setting's Custom index).
+# (row id, setting, label, help, variable, the setting's Custom index). Row ids
+# keep clear of the categories' grouplist ids (510, 520 ... 550: build_page).
+CUSTOM_FIRST_ID = 561
 QUALITY_SOURCES = (
     (506, "livetv", 32521, 32571, "LGTVQualityLiveTV", 5),
     (507, "sd", 32522, 32572, "LGTVQualitySD", 5),
     (508, "hd", 32523, 32573, "LGTVQualityHD", 5),
     (509, "uhd", 32525, 32575, "LGTVQualityUHD", 6),
-    (510, "restore", 32524, 32574, "LGTVQualityRestore", 5),
+    (557, "restore", 32524, 32574, "LGTVQualityRestore", 5),
 )
 # Custom cleanups: (short name, label, value labels: leave unchanged, off, low, medium, high[, auto]).
 QUALITY_CUSTOM = (
@@ -74,7 +76,7 @@ def quality_rows() -> list[tuple]:
         shown = f"Integer.IsEqual(Addon.SettingInt({ADDON},quality_{source}),{custom})"
         for m, (short, sub_label, _values) in enumerate(QUALITY_CUSTOM):
             key = f"quality_{source}_{short}"
-            rows.append(("button", 511 + n * 4 + m, "      " + a(sub_label), run("setting", key),
+            rows.append(("button", CUSTOM_FIRST_ID + n * 4 + m, "      " + a(sub_label), run("setting", key),
                          f"$VAR[LGTVQ_{source}_{short}]", "", a(32576), shown))
     return rows
 
@@ -214,6 +216,13 @@ def build_page(*, window_id: int, category_prop: str, categories: list, help_var
     t3, t4 = "\t\t\t", "\t\t\t\t"
     cat_cond = f"Window.Property({category_prop})"
     first_ids = {cat: next(r[1] for r in rows if r[0] not in ("header", "note")) for cat, _l, rows in categories}
+    # Kodi links a grouplist's up/down by control id: a row sharing an id with
+    # another row or a category's grouplist (first id // 100 * 10 + 500) stops
+    # navigation there.
+    used = [r[1] for _c, _l, rows in categories for r in rows] + [i // 100 * 10 + 500 for i in first_ids.values()]
+    clashes = sorted({i for i in used if used.count(i) > 1})
+    if clashes:
+        raise SystemExit(f"duplicate control ids on window {window_id}: {clashes}")
 
     cat_buttons = []
     for i, (cat, label, _rows) in enumerate(categories):
