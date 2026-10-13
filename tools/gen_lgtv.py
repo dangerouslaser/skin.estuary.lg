@@ -131,6 +131,8 @@ CATEGORIES = [
         ("button", 316, a(32609), run("setting", "bridge_wheel_speed"), "$VAR[LGTVWheelSpeed]", setting_bool("remote_bridge"), a(32659)),
         ("radio", 317, a(32635), setting_bool("bridge_volume_receiver"), [("", run("setting", "bridge_volume_receiver"))],
          f"{setting_bool('remote_bridge')} + $EXP[setup_denon]", a(32685)),
+        ("button", 318, a(32694), run("setting", "kodi_buttons"), "$VAR[LGTVKodiButtons]",
+         setting_bool("remote_bridge"), a(32695)),
         ("button", 309, a(32606), run("setting", "bridge_pointer_wake"), "$VAR[LGTVPointerWake]", setting_bool("bridge_pointer"), a(32656)),
         ("radio", 310, a(32607), setting_bool("bridge_pointer_return"), [("", run("setting", "bridge_pointer_return"))], setting_bool("bridge_pointer"), a(32657)),
         ("button", 311, a(32630), run("setting", "tv_pointer_speed"), "$VAR[LGTVPointerSpeed]", setting_bool("bridge_pointer"), a(32680)),
@@ -423,6 +425,10 @@ def build_includes() -> str:
 	<variable name="LGTVKodiInput">
 		<value condition="!String.IsEmpty({P}(WebOS.KodiInput))">$INFO[{P}(WebOS.KodiInput)]</value>
 		<value>{a(32309)}</value>
+	</variable>
+	<variable name="LGTVKodiButtons">
+		<value condition="!String.IsEmpty({P}(WebOS.KodiButtons))">$INFO[{P}(WebOS.KodiButtons)]</value>
+		<value>{a(32696)}</value>
 	</variable>
 	<variable name="LGTVRemoteBridgeAction">
 		<value condition="String.IsEqual({P}(WebOS.RemoteBridge),outdated)">{a(32636)}</value>

@@ -368,6 +368,7 @@
 		<value condition="Control.HasFocus(70047)">$LOCALIZE[36501]</value>
 		<value condition="Control.HasFocus(70049)">$LOCALIZE[31931]$INFO[Window(Home).Property(WebOS.PicturePresetLabel), · ]</value>
 		<value condition="Control.HasFocus(70066)">$LOCALIZE[31953]$INFO[Window(Home).Property(Denon.Format), · ]</value>
+		<value condition="Control.HasFocus(70067)">$LOCALIZE[31971]$INFO[Window(Home).Property(Sonos.Format), · ]</value>
 		<value condition="Control.HasFocus(70065) + System.GetBool(yblod.build)">$LOCALIZE[10116]</value>
 		<value condition="Control.HasFocus(70065)">$INFO[System.AddonTitle(script.bald.processinfo)]</value>
 		<value condition="Control.HasFocus(70048)">$LOCALIZE[5]</value>
@@ -1013,6 +1014,8 @@
 	<variable name="SetupReceiverLabel2Var">
 		<value condition="Skin.HasSetting(setup_receiver_denon) + !System.HasAddon(service.denonavr)">$LOCALIZE[31951] · $LOCALIZE[31952]</value>
 		<value condition="Skin.HasSetting(setup_receiver_denon)">$LOCALIZE[31951]</value>
+		<value condition="Skin.HasSetting(setup_receiver_sonos) + !System.HasAddon(service.sonos)">$LOCALIZE[31971] · $LOCALIZE[31952]</value>
+		<value condition="Skin.HasSetting(setup_receiver_sonos)">$LOCALIZE[31971]</value>
 		<value>$LOCALIZE[16018]</value>
 	</variable>
 </includes>

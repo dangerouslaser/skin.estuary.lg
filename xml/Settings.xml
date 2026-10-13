@@ -87,6 +87,12 @@
 						<icon>icons/settings/receiver.png</icon>
 						<visible>$EXP[setup_denon]</visible>
 					</item>
+					<item>
+						<label>$LOCALIZE[31971]</label>
+						<onclick>ActivateWindow(1123)</onclick>
+						<icon>icons/settings/sonos.png</icon>
+						<visible>$EXP[setup_sonos]</visible>
+					</item>
 				</content>
 			</control>
 			<control type="panel" id="9001">

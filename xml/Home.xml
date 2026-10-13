@@ -7,6 +7,9 @@
 	<!-- ... and the Denon receiver once its add-on is installed, unless a receiver was chosen. -->
 	<onload condition="!Skin.HasSetting(setup_receiver_chosen) + System.HasAddon(service.denonavr)">Skin.SetBool(setup_receiver_denon)</onload>
 	<onload condition="!Skin.HasSetting(setup_receiver_chosen) + System.HasAddon(service.denonavr)">Skin.SetBool(setup_receiver_chosen)</onload>
+	<!-- ... or the Sonos player once its add-on is installed (the Denon lines above win). -->
+	<onload condition="!Skin.HasSetting(setup_receiver_chosen) + System.HasAddon(service.sonos)">Skin.SetBool(setup_receiver_sonos)</onload>
+	<onload condition="!Skin.HasSetting(setup_receiver_chosen) + System.HasAddon(service.sonos)">Skin.SetBool(setup_receiver_chosen)</onload>
 	<!-- For service.webostv's Remote Bridge: where the remote's scroll wheel moves by
 	     button instead of Kodi's analog scroll. Sideways: horizontal rows (the home
 	     widgets, the Poster and Shift views). Buttons: grid panels (Wall, Banner,

@@ -562,6 +562,14 @@
 						<enable>Addon.SettingBool(service.webostv,remote_bridge) + $EXP[setup_denon]</enable>
 						<include>DefaultSettingButton</include>
 					</control>
+					<control type="button" id="318">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32694]</label>
+						<label2>$VAR[LGTVKodiButtons]</label2>
+						<onclick>RunScript(service.webostv,setting,kodi_buttons)</onclick>
+						<enable>Addon.SettingBool(service.webostv,remote_bridge)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
 					<control type="button" id="309">
 						<width>1390</width>
 						<label>$ADDON[service.webostv 32606]</label>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- skin.estuary.yblod: the audio receiver's volume (service.denonavr), shown for a moment
-     whenever it changes: the remote's volume buttons, the receiver's own remote, Home
-     Assistant. Same ring and place as Kodi's volume bar (DialogVolumeBar.xml), with the
-     receiver's volume number inside. -->
+<!-- skin.estuary.yblod: the audio receiver's or Sonos player's volume (service.denonavr,
+     service.sonos), shown for a moment whenever it changes: the remote's volume buttons, the
+     receiver's or player's own remote, the Sonos app, Home Assistant. Same ring and place as
+     Kodi's volume bar (DialogVolumeBar.xml), with the volume number inside. The Ring*
+     variables and expressions (Includes_Sonos.xml) pick whichever changed. -->
 <window type="dialog" id="1122">
-	<visible>$EXP[setup_denon] + String.IsEqual(Window(Home).Property(Denon.VolumeShow),true) + !Window.IsActive(startup)</visible>
+	<visible>$EXP[ring_show] + !Window.IsActive(startup)</visible>
 	<zorder>4</zorder>
 	<controls>
 		<control type="group">
@@ -32,8 +33,8 @@
 				<top>15</top>
 				<width>68</width>
 				<height>68</height>
-				<texture>$INFO[Window(Home).Property(Denon.VolumePercent),dialogs/volume/progress/p,.png]</texture>
-				<animation effect="fade" start="100" end="30" time="200" condition="String.IsEqual(Window(Home).Property(Denon.Mute),true)">Conditional</animation>
+				<texture>dialogs/volume/progress/p$VAR[RingPercent].png</texture>
+				<animation effect="fade" start="100" end="30" time="200" condition="$EXP[ring_mute]">Conditional</animation>
 			</control>
 			<control type="label">
 				<left>22</left>
@@ -43,8 +44,8 @@
 				<align>center</align>
 				<aligny>center</aligny>
 				<font>font12</font>
-				<label>$INFO[Window(Home).Property(Denon.VolumeDisplay)]</label>
-				<visible>!String.IsEqual(Window(Home).Property(Denon.Mute),true)</visible>
+				<label>$VAR[RingNumber]</label>
+				<visible>!$EXP[ring_mute]</visible>
 			</control>
 			<control type="image">
 				<left>36</left>
@@ -52,7 +53,7 @@
 				<width>40</width>
 				<height>40</height>
 				<texture colordiffuse="white">dialogs/volume/mute.png</texture>
-				<visible>String.IsEqual(Window(Home).Property(Denon.Mute),true)</visible>
+				<visible>$EXP[ring_mute]</visible>
 			</control>
 		</control>
 	</controls>

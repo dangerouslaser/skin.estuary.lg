@@ -12,6 +12,7 @@
 	<include file="Includes_MusicInfo.xml" />
 	<include file="Includes_LGTV.xml" />
 	<include file="Includes_Denon.xml" />
+	<include file="Includes_Sonos.xml" />
 	<include file="Includes_DVProcessInfo.xml" />
 	<include file="Includes_Custom.xml" />
 	<include file="Includes_PVR.xml" />
@@ -34,7 +35,8 @@
 	<expression name="setup_lg">Skin.HasSetting(setup_tv_lg) + System.AddonIsEnabled(service.webostv)</expression>
 	<expression name="setup_denon">Skin.HasSetting(setup_receiver_denon) + System.AddonIsEnabled(service.denonavr)</expression>
 	<!-- a TV or receiver is set up: the Settings screen shows its home theater row -->
-	<expression name="setup_home_theater">$EXP[setup_lg] | $EXP[setup_denon]</expression>
+	<expression name="setup_sonos">Skin.HasSetting(setup_receiver_sonos) + System.AddonIsEnabled(service.sonos)</expression>
+	<expression name="setup_home_theater">$EXP[setup_lg] | $EXP[setup_denon] | $EXP[setup_sonos]</expression>
 	<expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-image.xml)</expression>
 	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131)</expression>
 	<expression name="videoasset_true">Container.Content(videoassets) | Container.Content(videoversions) | Container.Content(videoextras)</expression>
