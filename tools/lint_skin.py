@@ -34,7 +34,7 @@ ADDON_REPOS = {
     "service.denonavr": "kodi-denon-control",
     "service.sonos": "kodi-sonos-control",
 }
-GENERATORS = ("gen_lgtv.py", "gen_denon.py", "gen_sonos.py", "gen_osd_panels.py")
+GENERATORS = ("gen_lgtv.py", "gen_denon.py", "gen_sonos.py", "gen_osd_panels.py", "gen_pointer.py")
 
 
 def string_ids(po: Path) -> set[int]:

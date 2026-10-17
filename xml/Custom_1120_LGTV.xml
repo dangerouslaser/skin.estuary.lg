@@ -586,6 +586,14 @@
 						<enable>Addon.SettingBool(service.webostv,bridge_pointer)</enable>
 						<include>DefaultSettingButton</include>
 					</control>
+					<control type="radiobutton" id="319">
+						<width>1390</width>
+						<label>$ADDON[service.webostv 32697]</label>
+						<selected>Addon.SettingBool(service.webostv,bridge_pointer_arrows)</selected>
+						<onclick>RunScript(service.webostv,setting,bridge_pointer_arrows)</onclick>
+						<enable>Addon.SettingBool(service.webostv,bridge_pointer)</enable>
+						<include>DefaultSettingButton</include>
+					</control>
 					<control type="button" id="311">
 						<width>1390</width>
 						<label>$ADDON[service.webostv 32630]</label>

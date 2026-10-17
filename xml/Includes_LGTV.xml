@@ -54,6 +54,7 @@
 		<value condition="Control.HasFocus(318)">$ADDON[service.webostv 32695]</value>
 		<value condition="Control.HasFocus(309)">$ADDON[service.webostv 32656]</value>
 		<value condition="Control.HasFocus(310)">$ADDON[service.webostv 32657]</value>
+		<value condition="Control.HasFocus(319)">$ADDON[service.webostv 32698]</value>
 		<value condition="Control.HasFocus(311)">$ADDON[service.webostv 32680]</value>
 		<value condition="Control.HasFocus(312)">$ADDON[service.webostv 32681]</value>
 		<value condition="Control.HasFocus(313)">$ADDON[service.webostv 32682]</value>

@@ -137,6 +137,7 @@ CATEGORIES = [
          setting_bool("remote_bridge"), a(32695)),
         ("button", 309, a(32606), run("setting", "bridge_pointer_wake"), "$VAR[LGTVPointerWake]", setting_bool("bridge_pointer"), a(32656)),
         ("radio", 310, a(32607), setting_bool("bridge_pointer_return"), [("", run("setting", "bridge_pointer_return"))], setting_bool("bridge_pointer"), a(32657)),
+        ("radio", 319, a(32697), setting_bool("bridge_pointer_arrows"), [("", run("setting", "bridge_pointer_arrows"))], setting_bool("bridge_pointer"), a(32698)),
         ("button", 311, a(32630), run("setting", "tv_pointer_speed"), "$VAR[LGTVPointerSpeed]", setting_bool("bridge_pointer"), a(32680)),
         ("button", 312, a(32631), run("setting", "tv_pointer_size"), "$VAR[LGTVPointerSize]", setting_bool("bridge_pointer"), a(32681)),
         ("button", 313, a(32632), run("setting", "tv_pointer_shape"), "$VAR[LGTVPointerShape]", setting_bool("bridge_pointer"), a(32682)),
